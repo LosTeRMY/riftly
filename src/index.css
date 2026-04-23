@@ -29,6 +29,8 @@
 
   --color-tertiary: #fffaf9;
   --color-tertiary-container: #ffd5d2;
+  --color-tertiary-fixed: #ffdad7;
+  --color-tertiary-fixed-dim: #ffb3ae;
   --color-on-tertiary: #68000b;
   --color-on-tertiary-container: #c01c27;
 
@@ -83,4 +85,26 @@
 
 .glow-effect:focus-within {
   box-shadow: 0 0 40px rgba(0, 255, 148, 0.15);
+}
+
+.glass-glow {
+  position: relative;
+  isolation: isolate;
+}
+.glass-glow::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: rgba(0, 255, 148, 0.15);
+  filter: blur(20px);
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+@layer utilities {
+  .shadow-sidebar { box-shadow: 20px 0 40px rgba(0,227,131,0.02); }
+  .shadow-avatar { box-shadow: 0 20px 40px rgba(0,227,131,0.05); }
+  .shadow-rank { box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+  .shadow-match { box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 }

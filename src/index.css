@@ -55,21 +55,23 @@
   --radius-full: 0.75rem;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-body {
-  font-family: 'Manrope', sans-serif;
-  background-color: #131318;
-  color: #e4e1e9;
-  -webkit-font-smoothing: antialiased;
-}
+  body {
+    font-family: 'Manrope', sans-serif;
+    background-color: #131318;
+    color: #e4e1e9;
+    -webkit-font-smoothing: antialiased;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Space Grotesk', sans-serif;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
 }
 
 .material-symbols-outlined {

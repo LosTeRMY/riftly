@@ -69,6 +69,8 @@
     background-color: #131318;
     color: #e4e1e9;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
 
   h1, h2, h3, h4, h5, h6 {

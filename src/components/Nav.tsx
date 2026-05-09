@@ -3,7 +3,7 @@ const NAV_LINKS = ["Live Game", "Champions", "Leaderboards", "Pro View"];
 export default function Nav() {
   return (
     <nav
-      className="absolute top-0 left-0 right-0 z-50 border-b border-surface-container-low bg-background flex items-center justify-between px-8 h-16"
+      className="fixed top-0 left-0 right-0 z-50 border-b border-surface-container-low bg-background flex items-center justify-between px-8 h-16"
       role="navigation"
     >
       {/* Logo */}
@@ -11,7 +11,7 @@ export default function Nav() {
         className="font-headline text-primary-container text-2xl font-black cursor-pointer"
         style={{ letterSpacing: "-0.04em" }}
       >
-        RIFTLY
+        <a href="/">RIFTLY</a>
       </span>
 
       {/* Nav links */}

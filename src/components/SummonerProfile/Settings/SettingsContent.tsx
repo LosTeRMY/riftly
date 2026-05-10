@@ -172,7 +172,7 @@ export default function SettingsContent({ currentGameName, currentTagLine, curre
           </div>
           <div className="flex gap-3 mt-6">
             <a
-              href="https://github.com/"
+              href="https://github.com/LosTeRMY/riftly"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-5 py-2.5 bg-surface-container hover:bg-surface-container-high text-on-surface font-label text-sm font-bold rounded-lg transition-colors"
@@ -181,7 +181,7 @@ export default function SettingsContent({ currentGameName, currentTagLine, curre
               GitHub
             </a>
             <a
-              href="https://linkedin.com/"
+              href="https://www.linkedin.com/in/thibaud-tranchet-b6b91134a/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-5 py-2.5 bg-primary-container hover:bg-primary-fixed-dim text-on-primary font-label text-sm font-bold rounded-lg transition-colors"

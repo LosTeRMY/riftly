@@ -5,6 +5,7 @@ import SummonerProfile from "./components/SummonerProfile";
 import Champions from './components/SummonerProfile/Champions/index';
 import LPGraph from './components/SummonerProfile/LPGraph/index';
 import Settings from './components/SummonerProfile/Settings/index';
+import Dashboard from './components/SummonerProfile/Dashboard/index';
 
 
 import "./index.css";
@@ -30,6 +31,9 @@ export default function App() {
         </Route>
         <Route element={<MainLayout />}>
           <Route path="/summoner/:region/:name/settings" element={<Settings />} />
+        </Route>
+        <Route element={<MainLayout />}>
+          <Route path="/summoner/:region/:name/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>

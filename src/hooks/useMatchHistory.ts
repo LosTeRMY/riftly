@@ -20,10 +20,13 @@ function formatDuration(seconds: number) {
 export function useMatchHistory(puuid: string, region: string) {
   const [matchIds, setMatchIds] = useState<string[]>([]);
   const [hasMore, setHasMore] = useState(true);
+  const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
+    setInitialized(false);
     getMatchIds(puuid, region, 10, 0).then((ids) => {
       setMatchIds(ids);
+      setInitialized(true);
       if (ids.length < 10) setHasMore(false);
     });
   }, [puuid, region]);
@@ -58,7 +61,7 @@ export function useMatchHistory(puuid: string, region: string) {
       };
     });
 
-  const isLoading = matchQueries.some((q) => q.isLoading);
+  const isLoading = !initialized || matchQueries.some((q) => q.isLoading);
 
   async function loadMore() {
     const newIds = await getMatchIds(puuid, region, 10, matchIds.length);

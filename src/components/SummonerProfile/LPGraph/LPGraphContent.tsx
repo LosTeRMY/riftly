@@ -1,14 +1,5 @@
 import { useLPData } from "../../../hooks/useLPData";
-
-function smoothPath(pts: { x: number; y: number }[]): string {
-  if (pts.length < 2) return "";
-  let d = `M ${pts[0].x} ${pts[0].y}`;
-  for (let i = 1; i < pts.length; i++) {
-    const cpx = (pts[i - 1].x + pts[i].x) / 2;
-    d += ` C ${cpx} ${pts[i - 1].y}, ${cpx} ${pts[i].y}, ${pts[i].x} ${pts[i].y}`;
-  }
-  return d;
-}
+import MomentumChart from "./MomentumChart";
 
 type Props = {
   puuid: string;
@@ -45,30 +36,7 @@ export default function LPGraphContent({ puuid, region, rankedSolo }: Props) {
     }
   }
 
-  // Curve: oldest first
   const ordered = [...rankedMatches].reverse();
-  let score = 0;
-  const curveScores = ordered.map((m) => {
-    score += m.win ? 1 : -1;
-    return score;
-  });
-
-  const W = 800;
-  const H = 200;
-  const PAD = 24;
-  const min = Math.min(...curveScores, 0);
-  const max = Math.max(...curveScores, 0);
-  const range = max - min || 1;
-
-  const points = curveScores.map((s, i) => ({
-    x: PAD + (i / Math.max(curveScores.length - 1, 1)) * (W - PAD * 2),
-    y: PAD + (1 - (s - min) / range) * (H - PAD * 2),
-  }));
-
-  const linePath = smoothPath(points);
-  const areaPath = linePath
-    ? `${linePath} L ${points[points.length - 1].x} ${H} L ${points[0].x} ${H} Z`
-    : "";
 
   const tierLabel =
     tier === "UNRANKED"
@@ -145,52 +113,7 @@ export default function LPGraphContent({ puuid, region, rankedSolo }: Props) {
           </div>
         </div>
 
-        {ordered.length < 2 ? (
-          <p className="text-on-surface-variant text-sm">
-            Not enough ranked games to display the curve.
-          </p>
-        ) : (
-          <>
-            <svg
-              viewBox={`0 0 ${W} ${H}`}
-              className="w-full"
-              style={{ height: 200 }}
-              preserveAspectRatio="none"
-            >
-              <defs>
-                <linearGradient id="curveGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="rgba(0,255,148,0.2)" />
-                  <stop offset="100%" stopColor="rgba(0,255,148,0)" />
-                </linearGradient>
-              </defs>
-              <path d={areaPath} fill="url(#curveGradient)" />
-              <path
-                d={linePath}
-                fill="none"
-                stroke="#00ff94"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              {points.map((p, i) => (
-                <circle
-                  key={ordered[i].matchId}
-                  cx={p.x}
-                  cy={p.y}
-                  r="5"
-                  fill={ordered[i].win ? "#00ff94" : "#ffd5d2"}
-                  stroke="#1b1b20"
-                  strokeWidth="2"
-                />
-              ))}
-            </svg>
-            <div className="flex justify-between mt-3 text-xs font-label text-on-surface-variant">
-              <span>{ordered.length} Games Ago</span>
-              <span>{Math.round(ordered.length / 2)} Games Ago</span>
-              <span>Current</span>
-            </div>
-          </>
-        )}
+        <MomentumChart matches={ordered} />
       </div>
 
       {/* Secondary Stats */}

@@ -166,8 +166,8 @@ export default function SettingsContent({ currentGameName, currentTagLine, curre
           <div>
             <h2 className="font-headline text-2xl font-bold text-on-surface mb-2">About Riftly</h2>
             <p className="font-body text-on-surface-variant text-sm leading-relaxed">
-              The premier editorial dashboard for League of Legends performance analytics.
-              Designed for high-end players who treat their stats as a professional portfolio.
+              Portfolio project built to explore React, TypeScript and the Riot Games API.
+              Stats are based on last 50 games due to the dev API key rate limits.
             </p>
           </div>
           <div className="flex gap-3 mt-6">

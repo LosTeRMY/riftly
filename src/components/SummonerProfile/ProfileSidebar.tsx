@@ -12,7 +12,11 @@ export default function ProfileSidebar({
   profileIconId: number;
 }) {
   const location = useLocation();
-  const basePath = `/summoner/${region}/${encodeURIComponent(gameName + "#" + tagLine)}`;
+  const knownSuffixes = ["/dashboard", "/champions", "/lp-graph", "/settings"];
+  const basePath = knownSuffixes.reduce(
+    (path, suffix) => (path.endsWith(suffix) ? path.slice(0, -suffix.length) : path),
+    location.pathname
+  );
 
   const NAV_ITEMS = [
     { icon: "dashboard", label: "Dashboard", path: `${basePath}/dashboard` },

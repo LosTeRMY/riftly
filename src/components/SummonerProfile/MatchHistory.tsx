@@ -21,10 +21,10 @@ export default function MatchHistory({
   return (
     <section>
       <div className="flex justify-between items-end mb-8">
-        <h2 className="font-headline text-2xl font-bold text-white">
+        <h2 className="hidden sm:block font-headline text-2xl font-bold text-white">
           Recent Matches
         </h2>
-        <div className="flex gap-2">
+        <div className="flex gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:pb-0">
           {ROLES.map((role) => (
             <button
               key={role}

@@ -11,6 +11,9 @@ type Props = {
   onPasswordChange: (value: string) => void;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   onGoogleLogin: () => void;
+  // Optional display name field (Sign Up only)
+  displayName?: string;
+  onDisplayNameChange?: (value: string) => void;
   // Text configuration
   title: string;
   subtitle: string;
@@ -29,6 +32,8 @@ export default function AuthFormContent({
   onPasswordChange,
   onSubmit,
   onGoogleLogin,
+  displayName,
+  onDisplayNameChange,
   title,
   subtitle,
   buttonLabel,
@@ -63,6 +68,28 @@ export default function AuthFormContent({
 
             {/* Email / password form */}
             <form className="space-y-6" onSubmit={onSubmit}>
+
+              {/* Display name field (Sign Up only) */}
+              {onDisplayNameChange && (
+                <div className="space-y-1.5">
+                  <label
+                    className="font-label text-[10px] uppercase tracking-widest text-on-surface-variant font-bold px-1"
+                    htmlFor="displayName"
+                  >
+                    Display name
+                  </label>
+                  <div className="focus-within:shadow-[0_0_20px_rgba(0,255,148,0.05)] transition-all">
+                    <input
+                      className="w-full bg-surface-container text-on-surface placeholder:text-outline-variant py-4 px-5 focus:ring-1 focus:ring-primary-container focus:outline-none transition-all font-body text-sm"
+                      id="displayName"
+                      placeholder="Summoner name"
+                      type="text"
+                      value={displayName ?? ""}
+                      onChange={(e) => onDisplayNameChange(e.target.value)}
+                    />
+                  </div>
+                </div>
+              )}
 
               {/* Email field */}
               <div className="space-y-1.5">

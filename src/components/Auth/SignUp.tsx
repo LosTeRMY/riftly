@@ -4,6 +4,7 @@ import { supabase } from "../../lib/supabase";
 import AuthFormContent from "./AuthFormContent";
 
 export default function SignUp() {
+  const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -15,7 +16,11 @@ export default function SignUp() {
     setLoading(true);
     setError(null);
     try {
-      const { error } = await supabase.auth.signUp({ email, password });
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { data: { full_name: displayName } },
+      });
       if (error) setError(error.message);
       else navigate("/");
     } catch {
@@ -31,6 +36,8 @@ export default function SignUp() {
 
   return (
     <AuthFormContent
+      displayName={displayName}
+      onDisplayNameChange={setDisplayName}
       email={email}
       password={password}
       error={error}

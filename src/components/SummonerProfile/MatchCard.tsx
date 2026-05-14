@@ -15,20 +15,27 @@ export default function MatchCard({ match }: { match: Match }) {
       />
 
       <div className="flex items-center gap-4 w-full md:w-auto">
-        <div className="w-12 h-12 rounded-xl overflow-hidden bg-surface-container-highest group-hover:scale-105 transition-transform flex-shrink-0">
+        <div className="w-12 h-12 rounded-xl overflow-hidden bg-surface-container-highest group-hover:scale-105 transition-transform shrink-0">
           <img
             src={`https://ddragon.leagueoflegends.com/cdn/16.8.1/img/champion/${match.champion}.png`}
             alt={match.champion}
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="flex-1 md:w-32">
-          <div className="font-headline font-bold text-lg text-white">
+        <div className="flex-1 md:w-32 min-w-0">
+          <div className="font-headline font-bold text-lg text-white truncate">
             {match.champion}
           </div>
-          <div className="font-label text-sm text-on-surface-variant">
+          <div className="font-label text-sm text-on-surface-variant truncate">
             {match.queue}
           </div>
+        </div>
+        {/* Victory/Defeat shown inline on mobile only */}
+        <div className="md:hidden text-right shrink-0">
+          <div className={`font-headline font-bold text-sm ${match.win ? "text-primary-fixed-dim" : "text-tertiary-fixed-dim"}`}>
+            {match.win ? "Victory" : "Defeat"}
+          </div>
+          <div className="font-label text-xs text-on-surface-variant">{match.duration}</div>
         </div>
       </div>
 

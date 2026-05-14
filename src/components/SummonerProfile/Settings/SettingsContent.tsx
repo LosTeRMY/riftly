@@ -191,7 +191,7 @@ export default function SettingsContent({ currentGameName, currentTagLine, curre
             </a>
           </div>
         </div>
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-start pt-3 pl-2 sm:pt-0 sm:pl-0 sm:justify-center">
           <p className="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-3">Tech Stack</p>
           <div className="flex flex-wrap gap-2">
             {TECH_STACK.map((tech) => (

@@ -25,14 +25,14 @@ export default function SettingsPage() {
   if (accountError) return <div>Summoner not found</div>;
 
   return (
-    <div className="min-h-screen flex bg-background text-on-surface pt-16">
+    <div className="min-h-screen flex flex-col lg:flex-row bg-background text-on-surface pt-16">
       <ProfileSidebar
         gameName={account.gameName}
         tagLine={account.tagLine}
         region={region}
         profileIconId={summoner?.profileIconId}
       />
-      <main className="flex-1 md:ml-64 px-6 pt-6 pb-24 md:px-12 md:pt-12 lg:px-16 lg:pt-16 max-w-400 w-full">
+      <main className="flex-1 lg:ml-64 px-4 pt-4 pb-24 sm:px-6 sm:pt-6 md:px-12 md:pt-12 lg:px-16 lg:pt-16 max-w-400 w-full">
         <SettingsContent
           currentGameName={account.gameName}
           currentTagLine={account.tagLine}

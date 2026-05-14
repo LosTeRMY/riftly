@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const NAV_LINKS = [
   { label: "Live Game", icon: "videogame_asset" },
@@ -27,13 +27,13 @@ export default function Nav() {
         {/* Nav links — hidden on mobile */}
         <div className="hidden md:flex items-center h-full">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.label}
-              href="#"
+              to="/coming-soon"
               className="font-label text-on-surface-variant text-[0.8rem] uppercase tracking-widest px-5 flex items-center h-full transition-colors duration-200 hover:text-white hover:bg-surface-container-low"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -88,15 +88,15 @@ export default function Nav() {
 
           <div className="space-y-3">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href="#"
+                to="/coming-soon"
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center gap-5 px-5 py-4 rounded-xl text-on-surface-variant hover:bg-surface-container transition-all font-label text-lg"
               >
                 <span className="material-symbols-outlined text-2xl">{link.icon}</span>
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Summoner Profile - Kinetic Noir</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#c7c5d0",
+                        "on-primary-container": "#00713f",
+                        "inverse-surface": "#e4e1e9",
+                        "error-container": "#93000a",
+                        "on-background": "#e4e1e9",
+                        "tertiary-fixed-dim": "#ffb3ae",
+                        "surface-container": "#1f1f25",
+                        "on-secondary": "#303038",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-container": "#c01c27",
+                        "primary-fixed": "#5bffa1",
+                        "surface-container-highest": "#35343a",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#39383e",
+                        "secondary": "#c7c5d0",
+                        "primary-fixed-dim": "#00e383",
+                        "on-tertiary-fixed-variant": "#930014",
+                        "on-primary-fixed": "#00210e",
+                        "inverse-primary": "#006d3c",
+                        "secondary-container": "#494852",
+                        "on-secondary-fixed": "#1b1b23",
+                        "surface-variant": "#35343a",
+                        "tertiary": "#fffaf9",
+                        "on-error": "#690005",
+                        "primary-container": "#00ff94",
+                        "outline-variant": "#3b4b3e",
+                        "tertiary-fixed": "#ffdad7",
+                        "surface-container-high": "#2a292f",
+                        "on-tertiary": "#68000b",
+                        "tertiary-container": "#ffd5d2",
+                        "on-secondary-fixed-variant": "#46464f",
+                        "surface-container-lowest": "#0e0e13",
+                        "surface-container-low": "#1b1b20",
+                        "on-secondary-container": "#b9b7c2",
+                        "on-primary-fixed-variant": "#00522c",
+                        "secondary-fixed": "#e4e1ed",
+                        "inverse-on-surface": "#303036",
+                        "outline": "#849586",
+                        "on-surface-variant": "#b9cbbb",
+                        "background": "#131318",
+                        "on-tertiary-fixed": "#410004",
+                        "surface-dim": "#131318",
+                        "on-primary": "#00391d",
+                        "surface": "#131318",
+                        "surface-tint": "#00e383",
+                        "on-surface": "#e4e1e9",
+                        "primary": "#f2fff1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; background-color: #131318; color: #e4e1e9; }
+        h1, h2, h3, h4, h5, h6, .font-headline { font-family: 'Space Grotesk', sans-serif; }
+        .glass-glow {
+            position: relative;
+        }
+        .glass-glow::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: rgba(0, 255, 148, 0.15);
+            filter: blur(20px);
+            z-index: -1;
+            border-radius: inherit;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col md:flex-row antialiased">
+<!-- TopNavBar (Mobile Only) -->
+<nav class="md:hidden w-full h-16 bg-[#131318] flex justify-between items-center px-8 z-50 sticky top-0" style="box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+<div class="text-2xl font-black tracking-tighter text-[#00FF94] font-headline">KINETIC NOIR</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[#b9cbbb] hover:text-white transition-colors" data-icon="search">search</span>
+<span class="material-symbols-outlined text-[#b9cbbb] hover:text-white transition-colors" data-icon="menu">menu</span>
+</div>
+</nav>
+<!-- SideNavBar (Desktop Only) -->
+<nav class="hidden md:flex flex-col py-8 bg-[#1b1b20] h-screen w-64 fixed left-0 top-0 z-40 transition-all ease-in-out" style="box-shadow: 20px 0 40px rgba(0,227,131,0.02);">
+<div class="px-8 mb-12">
+<div class="text-2xl font-black tracking-tighter text-[#00FF94] font-headline">KINETIC NOIR</div>
+</div>
+<div class="px-8 mb-8 flex items-center gap-4">
+<img alt="Summoner Profile Avatar" class="w-12 h-12 rounded-full object-cover" data-alt="High-contrast close-up portrait of a fantasy warrior character with glowing teal eyes and dark metallic armor in a moody environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkUVFIerduNvwFWlWucm3guotTMkasgVi9R-85UFYtvZDIAoqB1bZgC4H1Rj6GZAEVwlpMXyx8bCBvRnppySYbENayYttZHm-7xn93ylYnKH7EeFKqq784cC1b_vUGaa61WFH5Nt2B6la8ppx8dFl8xR4vOhhD1DnjOuIxB7YJYpjWuKj5ArmZGaOYbGeZzQ1rN56biEI0i3LQYdopTuoqA1B1Nx_531iM1V5E9G2Y29agOCOzPSANVVIz5O9-tvow_Q_kPNk_FRVe"/>
+<div>
+<div class="font-headline font-bold text-on-surface text-lg leading-tight">Faker</div>
+<div class="font-label text-sm text-on-surface-variant">Level 892</div>
+</div>
+</div>
+<div class="flex-1 px-4 space-y-2 font-label">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-[#b9cbbb] hover:bg-[#1f1f25] hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg bg-[#00FF94]/10 text-[#00FF94] border-r-4 border-[#00FF94] transition-all duration-300 font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="history" style="font-variation-settings: 'FILL' 1;">history</span>
+<span>Match History</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-[#b9cbbb] hover:bg-[#1f1f25] hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="sports_esports">sports_esports</span>
+<span>Champions</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-[#b9cbbb] hover:bg-[#1f1f25] hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span>LP Graph</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-[#b9cbbb] hover:bg-[#1f1f25] hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</div>
+<div class="px-8 mt-auto">
+<button class="w-full py-3 px-4 bg-surface-container hover:bg-surface-container-highest text-primary-fixed-dim font-headline font-bold rounded-lg transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="refresh">refresh</span>
+                Refresh Stats
+            </button>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-1 md:ml-64 p-6 md:p-12 lg:p-16 max-w-[1600px] w-full">
+<!-- Top Section: Summoner Profile -->
+<section class="mb-16">
+<div class="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12">
+<!-- Profile Identity -->
+<div class="flex items-center gap-6">
+<div class="relative">
+<img alt="Summoner Avatar" class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-[0_20px_40px_rgba(0,227,131,0.05)] border-2 border-surface-container-low" data-alt="High-end 3D render of a futuristic cyber-ninja helmet with glowing green accents on a pure black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH1S5tqSSiLoCzlc7HHoYYMlysaHHVcch41Qh-IiwDwA_UiiAu2LbfBTeZf9lkXZxqluJpgh2dYui-Y9L6er-LxfDSSj8Vmv2TSuc32JBE87IlbTzuxdtGok9JneHtyou7PvdP4OpDrx9iknW4n8Zn8vzta57r293PJu8mUNVBj_4M9RUtLFeggjEodbmPgSLKTCBK3GwgDei1Nw_O1XYm3X755B4l8yFUSTJQnACQQqj9b2H9HPF7PcfcD06DSY1q4DDf44BEWbo_"/>
+<div class="absolute -bottom-2 -right-2 bg-surface-container-highest text-on-surface font-headline font-bold text-sm px-3 py-1 rounded-full border border-surface-container-lowest">
+                            892
+                        </div>
+</div>
+<div>
+<h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-2">Faker</h1>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant font-label text-sm rounded-lg uppercase tracking-widest">Korea</span>
+<span class="text-surface-container-highest">•</span>
+<span class="text-primary-fixed-dim font-label text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="fiber_manual_record" style="font-variation-settings: 'FILL' 1;">fiber_manual_record</span>
+                                Online
+                            </span>
+</div>
+</div>
+</div>
+<!-- Rank & Performance (Asymmetric Layout) -->
+<div class="flex-1 flex flex-col sm:flex-row justify-end items-end sm:items-center gap-8 w-full md:w-auto">
+<div class="bg-surface-container-low p-6 rounded-xl flex items-center gap-6 w-full sm:w-auto shadow-[0_20px_40px_rgba(0,0,0,0.2)]">
+<img alt="Rank Emblem" class="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_0_15px_rgba(0,255,148,0.2)]" data-alt="Detailed golden shield emblem with glowing green crystal center and intricate filigree details on a dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCweqHArxyZtftG7XnGdWn2eEGQDawoz7udfC9UQ6a79qgpUSiA2jstXFfuwel4Lo_1osK9ZhDS8vrk_yUZN8oAgD33DLpveemItN22bmYIql1OwbSl1nkpn4MKT37pmIDZokLr5YgfI1mtFpJScDX0_ZDoet3M6chIUXHM7_zuTiyeOa6_peErDya1K51uhbBO7qYIrK0Ld1wQI4cqp6B3TbDtMlTVj9xjgadVJldSqLi9pjaFb9Sk0ubvKi4WesqQ6yKiirK2T2Dz"/>
+<div>
+<div class="font-headline text-2xl md:text-3xl font-bold text-white leading-none mb-1">Challenger</div>
+<div class="font-headline text-xl text-primary-fixed-dim font-semibold">1,240 LP</div>
+</div>
+</div>
+<div class="glass-glow text-right w-full sm:w-auto">
+<div class="font-headline text-[3.5rem] leading-none font-extrabold text-primary">64.2%</div>
+<div class="font-label text-sm text-on-surface-variant uppercase tracking-[0.1em] mt-1">Win Rate (S14)</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Match History Bento/List Hybrid -->
+<section>
+<div class="flex justify-between items-end mb-8">
+<h2 class="font-headline text-2xl font-bold text-white">Recent Matches</h2>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-lg font-label text-sm hover:bg-surface-bright transition-colors">All Roles</button>
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-lg font-label text-sm hover:bg-surface-bright transition-colors">Ranked Solo</button>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Win Match Card -->
+<div class="bg-surface-container rounded-xl p-4 md:p-6 flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 relative overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.1)] hover:bg-[#25252d] transition-colors group">
+<!-- Win Glow Bar -->
+<div class="absolute left-0 top-0 bottom-0 w-[4px] bg-primary-container"></div>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<div class="w-12 h-12 rounded-xl overflow-hidden group-hover:scale-105 transition-transform">
+<img alt="Champion Icon" class="w-full h-full object-cover" data-alt="Dark fantasy portrait of a hooded archer with glowing blue accents in a shadowy forest setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSQCmmqSr-RBYQFSe9ksQ9hj6Gg25CgZfX2CgwgapTaawzmPv_Xm1ibScAPJ10-eJspKrphPLvMoxoqTXd2l74KqSBseiB1u72hLsZgHqKWC2rz4UeLGzwzASYnNgE722byJJOguhUVDhSpTof7MgT84zdyO6SjVRUnoufDh9G8u52me1jgPebw5JW5crP65fDLtFv5YR8UFuCbgsoAqEpRpSmSPZkncjgDl76BarbE6X5KdVURGY7Jb758yGh4Osqr5yJ6mLKj9S6"/>
+</div>
+<div class="flex-1 md:w-32">
+<div class="font-headline font-bold text-lg text-white">Ashe</div>
+<div class="font-label text-sm text-on-surface-variant">Ranked Solo</div>
+</div>
+<div class="md:hidden text-right">
+<div class="font-headline font-bold text-primary-fixed-dim">Victory</div>
+<div class="font-label text-xs text-on-surface-variant">24:12</div>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-3 gap-4 items-center w-full">
+<div class="text-center">
+<div class="font-headline text-xl font-bold text-white">12 / 2 / 8</div>
+<div class="font-label text-xs text-on-surface-variant uppercase tracking-wider mt-1">10.0 KDA</div>
+</div>
+<div class="text-center">
+<div class="font-headline text-lg text-white">184</div>
+<div class="font-label text-xs text-on-surface-variant uppercase tracking-wider mt-1">CS (7.6/m)</div>
+</div>
+<div class="flex justify-end items-center gap-2">
+<!-- Items -->
+<div class="hidden sm:flex gap-1">
+<div class="w-8 h-8 bg-surface-container-highest rounded-lg"></div>
+<div class="w-8 h-8 bg-surface-container-highest rounded-lg"></div>
+<div class="w-8 h-8 bg-surface-container-highest rounded-lg"></div>
+<div class="w-8 h-8 bg-surface-container-highest rounded-lg"></div>
+</div>
+</div>
+</div>
+<div class="hidden md:block text-right w-24">
+<div class="font-headline font-bold text-primary-fixed-dim">Victory</div>
+<div class="font-label text-sm text-on-surface-variant">24:12</div>
+</div>
+</div>
+<!-- Loss Match Card -->
+<div class="bg-surface-container rounded-xl p-4 md:p-6 flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 relative overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.1)] hover:bg-[#25252d] transition-colors group">
+<!-- Loss Glow Bar -->
+<div class="absolute left-0 top-0 bottom-0 w-[4px] bg-tertiary-container"></div>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<div class="w-12 h-12 rounded-xl overflow-hidden group-hover:scale-105 transition-transform">
+<img alt="Champion Icon" class="w-full h-full object-cover" data-alt="Fierce demonic warrior with crimson horns and dark plate armor, dramatic red underlighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe3M_kyzNF2haKgE9A4kERSszgR2XLsbnLUA18M5GdsW3Imvh1l9aDdgpX79l8I5DSHqB-7taTsQT_5Gqorv0d0FdPWmHkDEmU6CU-MCu64C1vTGFAdS_0pF5yB1PBb4CaurLNqnIXdgb7lYpfxNSnrn1FDNX5ILei2CtsV89O_3S_bq1yjFTv-SdQ4oBAMUalZd2wFqIcPyf49-fYENGkz2ptm5iKfVNoXM1I7RNckG-Z9n2my573vjaiMPEFLRyYJ0a-dL6cV-ca"/>
+</div>
+<div class="flex-1 md:w-32">
+<div class="font-headline font-bold text-lg text-white">Aatrox</div>
+<div class="font-label text-sm text-on-surface-variant">Ranked Solo</div>
+</div>
+<div class="md:hidden text-right">
+<div class="font-headline font-bold text-tertiary-fixed-dim">Defeat</div>
+<div class="font-label text-xs text-on-surface-variant">32:45</div>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-3 gap-4 items-center w-full">
+<div class="text-center">
+<div class="font-headline text-xl font-bold text-white">4 / 7 / 3</div>
+<div class="font-label text-xs text-on-surface-variant uppercase tracking-wider mt-1">1.0 KDA</div>
+</div>
+<div class="text-center">
+<div class="font-headline text-lg text-white">210</div>
+<div class="font-label text-xs text-on-surface-variant uppercase tracking-wider mt-1">CS (6.4/m)</div>
+</div>
+<div class="flex justify-end items-center gap-2">
+<!-- Items -->
+<div class="hidden sm:flex gap-1">
+<div class="w-8 h-8 bg-surface-container-highest rounded-lg"></div>
+<div class="w-8 h-8 bg-surface-container-highest rounded-lg"></div>
+<div class="w-8 h-8 bg-surface-container-highest rounded-lg"></div>
+<div class="w-8 h-8 bg-surface-container-low rounded-lg border border-outline-variant/30"></div>
+</div>
+</div>
+</div>
+<div class="hidden md:block text-right w-24">
+<div class="font-headline font-bold text-tertiary-fixed-dim">Defeat</div>
+<div class="font-label text-sm text-on-surface-variant">32:45</div>
+</div>
+</div>
+<!-- Win Match Card 2 -->
+<div class="bg-surface-container rounded-xl p-4 md:p-6 flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 relative overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.1)] hover:bg-[#25252d] transition-colors group">
+<div class="absolute left-0 top-0 bottom-0 w-[4px] bg-primary-container"></div>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<div class="w-12 h-12 rounded-xl overflow-hidden group-hover:scale-105 transition-transform">
+<img alt="Champion Icon" class="w-full h-full object-cover" data-alt="Mystical fox spirit with nine glowing ethereal tails against a starry night background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0uqEUuYF1YMEV77vIutN6ThDXruPuzhMPC81llt1krOS6kug66iLC0AjAAPlrdGzrXanQTY49OE1b2_iWfZBlBclilVGzExYRQVd7YH0AwflWqlrze1ZxXSV8VLeL9cfuiSQNRzE_aGK5xw1AROEIKnNEnUgeHGdmO8TYVU7megXSagvKxbZIG_OBFr8AlnraSunDqn5GCaK8Gj6TOzllp00Rol963pzSoOlF5jmV77feqhR5JknVMnhqDbto8wB4TLh1Yn6p_2n8"/>
+</div>
+<div class="flex-1 md:w-32">
+<div class="font-headline font-bold text-lg text-white">Ahri</div>
+<div class="font-label text-sm text-on-surface-variant">Ranked Solo</div>
+</div>
+<div class="md:hidden text-right">
+<div class="font-headline font-bold text-primary-fixed-dim">Victory</div>
+<div class="font-label text-xs text-on-surface-variant">28:10</div>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-3 gap-4 items-center w-full">
+<div class="text-center">
+<div class="font-headline text-xl font-bold text-white">9 / 1 / 14</div>
+<div class="font-label text-xs text-on-surface-variant uppercase tracking-wider mt-1">23.0 KDA</div>
+</div>
+<div class="text-center">
+<div class="font-headline text-lg text-white">245</div>
+<div class="font-label text-xs text-on-surface-variant uppercase tracking-wider mt-1">CS (8.7/m)</div>
+</div>
+<div class="flex justify-end items-center gap-2">
+<div class="hidden sm:flex gap-1">
+<div class="w-8 h-8 bg-surface-container-highest rounded-lg"></div>
+<div class="w-8 h-8 bg-surface-container-highest rounded-lg"></div>
+<div class="w-8 h-8 bg-surface-container-highest rounded-lg"></div>
+<div class="w-8 h-8 bg-surface-container-highest rounded-lg"></div>
+</div>
+</div>
+</div>
+<div class="hidden md:block text-right w-24">
+<div class="font-headline font-bold text-primary-fixed-dim">Victory</div>
+<div class="font-label text-sm text-on-surface-variant">28:10</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex justify-center">
+<button class="px-8 py-3 rounded-lg border border-outline-variant/50 text-on-surface hover:bg-surface-container-low transition-colors font-headline font-semibold">Load More Matches</button>
+</div>
+</section>
+</main>
+</body></html>

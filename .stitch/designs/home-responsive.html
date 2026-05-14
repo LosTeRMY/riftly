@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KINETIC NOIR - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&amp;family=Manrope:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#c7c5d0",
+                        "on-primary-container": "#00713f",
+                        "inverse-surface": "#e4e1e9",
+                        "error-container": "#93000a",
+                        "on-background": "#e4e1e9",
+                        "tertiary-fixed-dim": "#ffb3ae",
+                        "surface-container": "#1f1f25",
+                        "on-secondary": "#303038",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-container": "#c01c27",
+                        "primary-fixed": "#5bffa1",
+                        "surface-container-highest": "#35343a",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#39383e",
+                        "secondary": "#c7c5d0",
+                        "primary-fixed-dim": "#00e383",
+                        "on-tertiary-fixed-variant": "#930014",
+                        "on-primary-fixed": "#00210e",
+                        "inverse-primary": "#006d3c",
+                        "secondary-container": "#494852",
+                        "on-secondary-fixed": "#1b1b23",
+                        "surface-variant": "#35343a",
+                        "tertiary": "#fffaf9",
+                        "on-error": "#690005",
+                        "primary-container": "#00ff94",
+                        "outline-variant": "#3b4b3e",
+                        "tertiary-fixed": "#ffdad7",
+                        "surface-container-high": "#2a292f",
+                        "on-tertiary": "#68000b",
+                        "tertiary-container": "#ffd5d2",
+                        "on-secondary-fixed-variant": "#46464f",
+                        "surface-container-lowest": "#0e0e13",
+                        "surface-container-low": "#1b1b20",
+                        "on-secondary-container": "#b9b7c2",
+                        "on-primary-fixed-variant": "#00522c",
+                        "secondary-fixed": "#e4e1ed",
+                        "inverse-on-surface": "#303036",
+                        "outline": "#849586",
+                        "on-surface-variant": "#b9cbbb",
+                        "background": "#131318",
+                        "on-tertiary-fixed": "#410004",
+                        "surface-dim": "#131318",
+                        "on-primary": "#00391d",
+                        "surface": "#131318",
+                        "surface-tint": "#00e383",
+                        "on-surface": "#e4e1e9",
+                        "primary": "#f2fff1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #131318;
+            color: #e4e1e9;
+        }
+        h1, h2, h3, h4, h5, h6, .font-headline {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .glow-effect:focus-within {
+            box-shadow: 0 0 40px rgba(0, 255, 148, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container relative">
+<!-- TopNavBar -->
+<nav class="absolute top-0 left-0 right-0 bg-[#131318] text-[#00FF94] w-full h-16 border-b border-[#1b1b20] flex justify-between items-center px-8 max-w-[1920px] mx-auto z-50">
+<div class="text-2xl font-black tracking-tighter text-[#00FF94] font-headline">
+            KINETIC NOIR
+        </div>
+<div class="hidden md:flex items-center gap-8 h-full"><a class="text-[#b9cbbb] hover:text-white transition-colors hover:bg-[#1b1b20] transition-all duration-300 px-4 flex items-center h-full font-label text-sm uppercase tracking-[0.1em]" href="#">Live Game</a><a class="text-[#b9cbbb] hover:text-white transition-colors hover:bg-[#1b1b20] transition-all duration-300 px-4 flex items-center h-full font-label text-sm uppercase tracking-[0.1em]" href="#">Champions</a><a class="text-[#b9cbbb] hover:text-white transition-colors hover:bg-[#1b1b20] transition-all duration-300 px-4 flex items-center h-full font-label text-sm uppercase tracking-[0.1em]" href="#">Leaderboards</a><a class="text-[#b9cbbb] hover:text-white transition-colors hover:bg-[#1b1b20] transition-all duration-300 px-4 flex items-center h-full font-label text-sm uppercase tracking-[0.1em]" href="#">Pro View</a></div><button class="md:hidden text-[#b9cbbb] hover:text-[#00FF94]"><span class="material-symbols-outlined">menu</span></button>
+<div class="flex items-center gap-6"><button class="text-[#b9cbbb] hover:text-[#00FF94] transition-colors scale-75 md:scale-95 duration-150"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span></button><button class="text-[#b9cbbb] hover:text-[#00FF94] transition-colors scale-75 md:scale-95 duration-150"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span></button><div class="w-6 h-6 md:w-8 md:h-8 rounded-full overflow-hidden border border-outline-variant scale-75 md:scale-95 duration-150 cursor-pointer"><img alt="Summoner Profile Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh3Xenpj53jP2WJiVBJVccUACpn74XsTq8GOFfBSpmwMiroBxwAiIoeqet6mmOQw-T8c-a9xTrYpKzG5hT_C_94TQSKFYODxbSmhP16ZHXaaRyarsepIOdJCl0cuEa8xe_2mEmzaJOHA4Xl1MHJI7j8S1tEyr_KCUm5_-nKiUQzZR4t-SuObv2ynIgJtEvJ5E6G4F5lOWX2CCBbXsR8VBLinDNJB8V2BoCSirnj-nNDj-kARYxSq2z_yiqqpAV0IBVsaSi98KS_8Mb"/></div></div>
+</nav>
+<!-- Main Content Area -->
+<main class="h-screen w-full flex flex-col items-center justify-center px-4 md:px-8 relative overflow-hidden">
+<!-- Ambient Background Glow -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-container/5 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="w-full max-w-3xl flex flex-col items-center z-10 mx-auto">
+<h1 class="font-headline text-4xl md:text-7xl font-bold text-primary mb-8 md:mb-12 tracking-tight text-center px-4">Track your game</h1>
+<!-- Search Component -->
+<div class="w-full relative glow-effect transition-shadow duration-500 rounded-xl bg-surface-container-low flex flex-col md:flex-row items-center p-2 gap-2 border border-outline-variant/30">
+<!-- Region Selector -->
+<div class="relative w-full md:w-auto shrink-0">
+<select class="appearance-none w-full md:w-32 bg-surface-container text-on-surface font-label text-sm px-4 py-3 md:py-4 rounded-lg border-none focus:ring-0 cursor-pointer uppercase tracking-wider">
+<option value="euw">EUW</option>
+<option value="na">NA</option>
+<option value="kr">KR</option>
+<option value="eune">EUNE</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+<!-- Search Input -->
+<div class="flex-grow w-full relative">
+<input class="w-full bg-transparent border-none text-on-surface placeholder:text-on-surface-variant/50 font-body text-base md:text-lg px-4 py-3 md:py-4 focus:ring-0 h-full" placeholder="Summoner Name + #TAG" type="text"/>
+</div>
+<!-- Search Button -->
+<button class="w-full md:w-auto bg-primary-container text-on-primary-container px-8 py-3 md:py-4 rounded-lg font-label font-bold tracking-wide hover:bg-primary transition-colors flex items-center justify-center gap-2 group shrink-0 shadow-[0_0_20px_rgba(0,255,148,0.2)]">
+<span class="uppercase">Search</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- Recent Searches / Quick Links (Optional Context) -->
+<div class="mt-8 flex gap-4 text-sm font-label text-on-surface-variant flex-wrap justify-center">
+<span class="uppercase tracking-widest text-xs opacity-50">Trending:</span>
+<a class="hover:text-primary-container transition-colors" href="#">Faker#KR1</a>
+<span class="opacity-30">•</span>
+<a class="hover:text-primary-container transition-colors" href="#">Caps#EUW</a>
+</div>
+</div>
+</main>
+</body></html>

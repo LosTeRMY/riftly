@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kinetic Noir - Champions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#46464f",
+                      "background": "#131318",
+                      "outline": "#849586",
+                      "surface-container-low": "#1b1b20",
+                      "on-tertiary-fixed-variant": "#930014",
+                      "surface-tint": "#00e383",
+                      "on-primary-container": "#00713f",
+                      "on-secondary": "#303038",
+                      "tertiary": "#fffaf9",
+                      "on-surface": "#e4e1e9",
+                      "on-background": "#e4e1e9",
+                      "surface-container-lowest": "#0e0e13",
+                      "on-error-container": "#ffdad6",
+                      "on-primary": "#00391d",
+                      "surface-dim": "#131318",
+                      "primary": "#f2fff1",
+                      "on-surface-variant": "#b9cbbb",
+                      "primary-fixed": "#5bffa1",
+                      "secondary-container": "#494852",
+                      "surface-container-high": "#2a292f",
+                      "on-primary-fixed": "#00210e",
+                      "tertiary-container": "#ffd5d2",
+                      "surface-variant": "#35343a",
+                      "on-secondary-container": "#b9b7c2",
+                      "on-tertiary": "#68000b",
+                      "on-tertiary-fixed": "#410004",
+                      "outline-variant": "#3b4b3e",
+                      "error-container": "#93000a",
+                      "surface-container-highest": "#35343a",
+                      "on-secondary-fixed": "#1b1b23",
+                      "surface": "#131318",
+                      "secondary": "#c7c5d0",
+                      "tertiary-fixed": "#ffdad7",
+                      "on-primary-fixed-variant": "#00522c",
+                      "tertiary-fixed-dim": "#ffb3ae",
+                      "inverse-surface": "#e4e1e9",
+                      "secondary-fixed": "#e4e1ed",
+                      "primary-fixed-dim": "#00e383",
+                      "on-tertiary-container": "#c01c27",
+                      "secondary-fixed-dim": "#c7c5d0",
+                      "inverse-on-surface": "#303036",
+                      "surface-bright": "#39383e",
+                      "error": "#ffb4ab",
+                      "inverse-primary": "#006d3c",
+                      "primary-container": "#00ff94",
+                      "surface-container": "#1f1f25",
+                      "on-error": "#690005"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Space Grotesk"
+                      ],
+                      "body": [
+                              "Manrope"
+                      ],
+                      "label": [
+                              "Manrope"
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+      </style>
+</head>
+<body class="bg-surface text-on-surface font-body flex h-screen overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar Component -->
+<nav class="bg-[#1b1b20] dark:bg-[#1b1b20] text-[#00FF94] dark:text-[#00FF94] font-['Manrope'] antialiased fixed left-0 top-0 h-full w-64 shadow-[20px_0_40px_rgba(0,255,148,0.02)] z-40">
+<div class="flex flex-col h-full py-8 gap-4">
+<!-- Brand / Header -->
+<div class="px-6 mb-8 flex flex-col items-center gap-4">
+<div class="relative w-20 h-20 rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,255,148,0.1)]">
+<img alt="Summoner Avatar" class="w-full h-full object-cover" data-alt="abstract dark geometric neon cyber mask with glowing green accents on black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE-EaET7MhCrdC-fJmTqHNAquMv4pGYg-B3emO6VCjFGT456Sguj0Olvb5r8ZAoH7DIXTpQUqBmdna3mLPQny_cvhP2z_wlc5i-EOT9uV_SCEo664M4MHGN63wnA7cLYKxfnEX13c7g9ETVKBes22w1hlDIk9j9cUqJb-LtZtqyCYf2jPaFLOqNJggAipjuSvwWZAAfIhiYq7yvHUNMJIedvccBj3ocadm9nk89Rx6apmiDNiaR9asWcbbk0J1MTUOwdRv4WBwuaoX"/>
+</div>
+<div class="text-center">
+<h2 class="text-xl font-bold text-[#00FF94] font-headline tracking-tight">Summoner Legacy</h2>
+<p class="text-sm text-on-surface-variant mt-1 uppercase tracking-widest font-semibold">Challenger Tier</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 flex flex-col gap-2">
+<!-- Dashboard (Inactive) -->
+<a class="text-slate-500 flex items-center px-6 py-4 hover:bg-[#1f1f25] hover:text-white transition-colors duration-300" href="#">
+<span class="material-symbols-outlined mr-4">dashboard</span>
+<span class="font-medium tracking-wide">Dashboard</span>
+</a>
+<!-- Match History (Inactive) -->
+<a class="text-slate-500 flex items-center px-6 py-4 hover:bg-[#1f1f25] hover:text-white transition-colors duration-300" href="#">
+<span class="material-symbols-outlined mr-4">history</span>
+<span class="font-medium tracking-wide">Match History</span>
+</a>
+<!-- Champions (Active) -->
+<a class="text-[#00FF94] font-bold bg-[#1f1f25] border-r-4 border-[#00FF94] flex items-center px-6 py-4 translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined mr-4" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="font-bold tracking-wide">Champions</span>
+</a>
+</div>
+<!-- CTA -->
+<div class="px-6 mt-auto">
+<button class="w-full py-3 bg-surface-container-highest text-on-surface font-headline font-bold rounded-lg hover:bg-surface-variant transition-colors flex items-center justify-center gap-2 border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary-container text-sm">bolt</span>
+                    Upgrade to Pro
+                </button>
+</div>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 ml-64 flex flex-col h-full relative z-10">
+<!-- TopNavBar Component -->
+<header class="bg-[#131318] dark:bg-[#131318] text-[#00FF94] dark:text-[#00FF94] font-['Space_Grotesk'] tracking-tight docked full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-8 h-20">
+<!-- Brand Logo -->
+<div class="text-2xl font-black text-[#00FF94] uppercase tracking-widest flex items-center gap-3">
+<span class="w-2 h-8 bg-primary-container block rounded-full shadow-[0_0_15px_rgba(0,255,148,0.5)]"></span>
+                    KINETIC
+                </div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-6">
+<button class="text-slate-400 hover:bg-[#1f1f25] hover:text-[#00FF94] transition-all p-2 rounded-full scale-95 hover:scale-100 duration-150 ease-in-out">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-slate-400 hover:bg-[#1f1f25] hover:text-[#00FF94] transition-all p-2 rounded-full scale-95 hover:scale-100 duration-150 ease-in-out">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-xl overflow-hidden border border-outline-variant/30 ml-2">
+<img alt="User Summoner Icon" class="w-full h-full object-cover" data-alt="abstract dark geometric neon cyber mask with glowing green accents on black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFapWdGCpeU0XuuY6vj5hmJZaKzk5xo43I6bxKeRFj-Q6imPc98N5I3oBjQF13dVKYkZkHJBPxvdrK1IKZcQrX47QQBNH_nbms6RKPhnJEGPjv2_v3J_tw_GlzbXozHnk2Q1GXrmfdpk28MKqHkL4dZnnXhFAs7vGhptFRjyPCFnocHmqiDzZ4ndTH3nC5xL0XHtV63c9wHcJ7315H-4IgOWszLlQ0sDgcI1MbgGd4mVrvz7fSZKhtOn_3oCt1vnzCHTVyqwenXujd"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Canvas -->
+<main class="flex-1 overflow-y-auto bg-background p-10 lg:p-16">
+<div class="max-w-6xl mx-auto">
+<!-- Page Header (Editorial Style) -->
+<div class="mb-12 relative">
+<div class="absolute -top-10 -left-10 w-64 h-64 bg-primary-container/5 rounded-full blur-[80px] pointer-events-none"></div>
+<h1 class="font-headline text-5xl lg:text-6xl font-bold text-on-surface tracking-tighter mb-4 relative z-10">
+                        Champion <span class="text-on-surface-variant">Arsenal</span>
+</h1>
+<p class="font-body text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+                        Performance documentation for Season 14. Sorted by deployment frequency.
+                    </p>
+</div>
+<!-- Data Table / List Container -->
+<div class="flex flex-col gap-2">
+<!-- Table Header -->
+<div class="grid grid-cols-12 gap-4 px-6 py-4 text-xs font-headline font-bold text-on-surface-variant uppercase tracking-[0.2em] border-b border-outline-variant/10 mb-2">
+<div class="col-span-4 flex items-center">Champion</div>
+<div class="col-span-2 text-center">Deployments</div>
+<div class="col-span-2 text-center">Win Rate</div>
+<div class="col-span-2 text-center">KDA Ratio</div>
+<div class="col-span-2 text-right">CS / Min</div>
+</div>
+<!-- Row 1: High Winrate -->
+<div class="group relative flex items-center grid grid-cols-12 gap-4 px-6 py-5 bg-surface-container-lowest rounded-xl transition-all duration-300 hover:bg-surface-container overflow-hidden">
+<!-- Glow Indicator (Win) -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container shadow-[0_0_15px_rgba(0,255,148,0.6)]"></div>
+<div class="col-span-4 flex items-center gap-5">
+<div class="relative w-14 h-14 rounded-xl overflow-hidden shrink-0 transition-transform duration-300 group-hover:scale-105 shadow-lg">
+<img alt="Champion Icon" class="w-full h-full object-cover" data-alt="close up of a neon futuristic female character face with glowing blue and pink cybernetic implants in dark shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8T3Kp7CtYslPO8HCIUSJozNkj7vEoDICYKY05UbwGgU6w8KTrOqn61MwpWioJIg5UwJBGf4-N61vefZVQaKSPsY3CVX0Bf4rSjvl5agyWquYBGrGAKwiLKl8rYbAJ4LW_ihl9L-CvLoG3z_HcDGOMbXxNrdXkwCmn4iu3fyRQDETGCVnhJMML6U73i9kSi7eWrYK5BQlV5I1TWQK24mvwdFN-w9cZLb8TcEveMIJEVFZwCbEfG8uaspAQtTRb67f1UccXyYGluxoW"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-xl font-bold text-on-surface tracking-tight">Jinx</span>
+<span class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Marksman</span>
+</div>
+</div>
+<div class="col-span-2 flex items-center justify-center">
+<span class="font-headline text-2xl font-medium text-on-surface">142</span>
+</div>
+<div class="col-span-2 flex items-center justify-center relative">
+<!-- Background Bloom -->
+<div class="absolute inset-0 bg-primary-container/10 blur-xl rounded-full scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<span class="font-headline text-3xl font-bold text-primary-container relative z-10">68%</span>
+</div>
+<div class="col-span-2 flex items-center justify-center flex-col">
+<span class="font-headline text-xl font-medium text-on-surface">4.2<span class="text-on-surface-variant text-sm">:1</span></span>
+<span class="text-xs text-on-surface-variant mt-1">12.4 / 3.1 / 8.2</span>
+</div>
+<div class="col-span-2 flex items-center justify-end pr-4">
+<span class="font-headline text-xl font-medium text-on-surface">8.5</span>
+</div>
+</div>
+<!-- Row 2: Medium Winrate (Alternate Shading) -->
+<div class="group relative flex items-center grid grid-cols-12 gap-4 px-6 py-5 bg-surface rounded-xl transition-all duration-300 hover:bg-surface-container overflow-hidden">
+<!-- Glow Indicator (Win) -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container opacity-60"></div>
+<div class="col-span-4 flex items-center gap-5">
+<div class="relative w-14 h-14 rounded-xl overflow-hidden shrink-0 transition-transform duration-300 group-hover:scale-105 shadow-lg">
+<img alt="Champion Icon" class="w-full h-full object-cover" data-alt="close up of a heavily armored futuristic soldier helmet in dark metallic greys with a single glowing green optic sensor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb8-IXvSkq5bdYIe0QLIZSUGhFNeEi56MFqH_0S3rx8W-kIxF1J7aakCe1z9e0lDw55CcNwKaJ-1CIrd5Zwpbni8mEHEZkyWUn32Hg4G_3dG2FePMBJWnw2nF3z_w7G8Ow76uNGy2EdR1QP909SUTVGVWWIgmUu0cLRirEOlFgpOQzF62_Co-GmgItsCQGRbnuhtJky_nCAtK5I6PLpuBrA3FkOV2_rV_-uBEE2lQvixSy2SDfvvJtTALH8kAV972gQ3SKlYx3r6fj"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-xl font-bold text-on-surface tracking-tight">K'Sante</span>
+<span class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Tank</span>
+</div>
+</div>
+<div class="col-span-2 flex items-center justify-center">
+<span class="font-headline text-2xl font-medium text-on-surface">98</span>
+</div>
+<div class="col-span-2 flex items-center justify-center">
+<span class="font-headline text-2xl font-bold text-primary-fixed-dim">54%</span>
+</div>
+<div class="col-span-2 flex items-center justify-center flex-col">
+<span class="font-headline text-xl font-medium text-on-surface">2.8<span class="text-on-surface-variant text-sm">:1</span></span>
+<span class="text-xs text-on-surface-variant mt-1">4.1 / 4.5 / 8.5</span>
+</div>
+<div class="col-span-2 flex items-center justify-end pr-4">
+<span class="font-headline text-xl font-medium text-on-surface">7.2</span>
+</div>
+</div>
+<!-- Row 3: Loss Rate (Alternate Shading) -->
+<div class="group relative flex items-center grid grid-cols-12 gap-4 px-6 py-5 bg-surface-container-lowest rounded-xl transition-all duration-300 hover:bg-surface-container overflow-hidden">
+<!-- Glow Indicator (Loss) -->
+<div class="absolute left-0 top-0 bottom-0 w-[2px] bg-tertiary-container shadow-[0_0_10px_rgba(255,213,210,0.3)]"></div>
+<div class="col-span-4 flex items-center gap-5">
+<div class="relative w-14 h-14 rounded-xl overflow-hidden shrink-0 transition-transform duration-300 group-hover:scale-105 shadow-lg">
+<img alt="Champion Icon" class="w-full h-full object-cover" data-alt="abstract swirl of dark crimson red and black smoke with sharp aggressive fractal lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhJsAdSXQurHGpo3o8xSbfYfchunm30W8yAJJfxuqkPJd56Z0z96DFJIvZ7e3b31TQlLggX5HNsO23Ba55dmSDBtzXDad4TFS8KJwi7lap1yaaGS3d-YbynxGyAwAMYZFcidZVUkVOpBDrcI2GmpGJNRI-soAkpkVhMWvewu8bSRinXfWDA810iIR0k1AjlV-RUgOkWeZeo9rSItX0xtcJNgmLPWZIeaBsixOsE4mZAMH9a83GatCcTXn-U5Yz1dSQDvYHBC4yVltC"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-xl font-bold text-on-surface tracking-tight">Yasuo</span>
+<span class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Fighter</span>
+</div>
+</div>
+<div class="col-span-2 flex items-center justify-center">
+<span class="font-headline text-2xl font-medium text-on-surface">75</span>
+</div>
+<div class="col-span-2 flex items-center justify-center">
+<span class="font-headline text-3xl font-bold text-tertiary-container">42%</span>
+</div>
+<div class="col-span-2 flex items-center justify-center flex-col">
+<span class="font-headline text-xl font-medium text-on-surface">1.8<span class="text-on-surface-variant text-sm">:1</span></span>
+<span class="text-xs text-on-surface-variant mt-1">6.5 / 8.2 / 4.1</span>
+</div>
+<div class="col-span-2 flex items-center justify-end pr-4">
+<span class="font-headline text-xl font-medium text-on-surface">6.8</span>
+</div>
+</div>
+<!-- Row 4: Neutral/Low Winrate -->
+<div class="group relative flex items-center grid grid-cols-12 gap-4 px-6 py-5 bg-surface rounded-xl transition-all duration-300 hover:bg-surface-container overflow-hidden">
+<!-- Glow Indicator (Loss) -->
+<div class="absolute left-0 top-0 bottom-0 w-[2px] bg-tertiary-container opacity-60"></div>
+<div class="col-span-4 flex items-center gap-5">
+<div class="relative w-14 h-14 rounded-xl overflow-hidden shrink-0 transition-transform duration-300 group-hover:scale-105 shadow-lg">
+<img alt="Champion Icon" class="w-full h-full object-cover" data-alt="retro arcade interface displaying green wireframe graphics on a dark monitor screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDemh1Q1uhwTWWZt1gScQVtprA1qLqyGFbo-NSBxcgEGsTgJeipiYAmYJbuw8TAGAODMvd8tqnOSypIFJNLF9V_fo5qQQVslVvc0leBgh_dRRHn_rGtl2MNKehE03c0hc6lGIcA4-1IhLLci3w_KQRHLFiAkiLLFHL0R75ktzlQiMi4ubQnVWUS1Ue0qWI3amWO-W_xfVyBJRjoBI2oX53lHMmN-RQNIkW4XftWg1eJFfdZlDRtftw90LRm1YLPZ1VXE44SCNkG8d60"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-xl font-bold text-on-surface tracking-tight">Blitzcrank</span>
+<span class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Support</span>
+</div>
+</div>
+<div class="col-span-2 flex items-center justify-center">
+<span class="font-headline text-2xl font-medium text-on-surface">61</span>
+</div>
+<div class="col-span-2 flex items-center justify-center">
+<span class="font-headline text-2xl font-bold text-tertiary-container">48%</span>
+</div>
+<div class="col-span-2 flex items-center justify-center flex-col">
+<span class="font-headline text-xl font-medium text-on-surface">3.1<span class="text-on-surface-variant text-sm">:1</span></span>
+<span class="text-xs text-on-surface-variant mt-1">1.2 / 5.5 / 15.8</span>
+</div>
+<div class="col-span-2 flex items-center justify-end pr-4">
+<span class="font-headline text-xl font-medium text-on-surface">1.2</span>
+</div>
+</div>
+</div>
+<!-- Spacer for bottom scroll -->
+<div class="h-24 w-full"></div>
+</div>
+</main>
+</div>
+</body></html>

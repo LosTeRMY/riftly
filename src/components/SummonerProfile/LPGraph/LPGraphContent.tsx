@@ -48,7 +48,7 @@ export default function LPGraphContent({ puuid, region, rankedSolo }: Props) {
     : `/assets/unranked.webp`;
 
   return (
-    <div className="space-y-6 pb-16">
+    <div className="space-y-6 pb-16 pt-6 sm:pt-0">
       {/* Header */}
       <div className="relative mb-12">
         <div className="absolute -top-10 -left-10 w-80 h-80 bg-primary-container/5 rounded-full blur-[100px] pointer-events-none" />

@@ -57,7 +57,7 @@ export default function SettingsContent({ currentGameName, currentTagLine, curre
     <div className="space-y-8 pb-16">
 
       {/* Header */}
-      <div className="relative mb-12">
+      <div className="relative mb-12 pt-6 sm:pt-0">
         <div className="absolute -top-10 -left-10 w-80 h-80 bg-primary-container/5 rounded-full blur-[100px] pointer-events-none" />
         <h1 className="font-headline text-5xl lg:text-6xl font-bold text-on-surface tracking-tighter mb-4 relative z-10">
           Control <span className="text-on-surface-variant">Center</span>
@@ -82,7 +82,7 @@ export default function SettingsContent({ currentGameName, currentTagLine, curre
           <select
             value={defaultRegion}
             onChange={(e) => handleRegionChange(e.target.value)}
-            className="bg-surface-container text-on-surface font-body text-sm rounded-lg px-4 py-3 outline-none border border-outline-variant/20 focus:border-primary-container transition-colors cursor-pointer"
+            className="bg-surface-container text-on-surface font-body text-sm rounded-lg px-4 py-3 outline-none border border-outline-variant/20 focus:border-primary-container transition-colors cursor-pointer w-[75%] sm:w-auto"
           >
             {REGIONS.map((r) => (
               <option key={r.value} value={r.value}>

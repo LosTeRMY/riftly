@@ -44,71 +44,65 @@ export default function Home() {
   };
 
   useEffect(() => {
-  document.body.style.overflow = 'hidden';
-  return () => { document.body.style.overflow = ''; };
-}, []);
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
 
   return (
-    <main className="h-screen w-full flex flex-col items-center justify-center px-8 relative overflow-hidden">
+    <main className="h-screen w-full flex flex-col items-center justify-center px-4 md:px-8 relative overflow-hidden">
       {/* Glow radial gradient */}
-      <div
-        style={GLOW_STYLE}
-      />
+      <div style={GLOW_STYLE} />
 
-      <div className="w-full max-w-3xl flex flex-col items-center z-10 relative">
-        <h1 className="font-headline font-bold text-primary text-center mb-12 leading-[1.1] text-[clamp(3rem,7vw,4.5rem)] tracking-[-0.02em]">
+      <div className="w-full max-w-3xl flex flex-col items-center z-10 mx-auto">
+        <h1 className="font-headline font-bold text-primary text-center mb-8 md:mb-12 text-4xl md:text-7xl tracking-tight px-4">
           Track your game
         </h1>
 
         {/* Search bar */}
-        <div className="glow-effect w-full flex items-center gap-2 p-2 bg-surface-container-low border border-outline-variant/30 rounded-xl transition-shadow duration-500">
+        <div className="glow-effect w-full flex flex-col md:flex-row items-center p-2 gap-2 bg-surface-container-low border border-outline-variant/30 rounded-xl transition-shadow duration-500">
           {/* Region selector */}
-          <div className="relative shrink-0">
+          <div className="relative w-full md:w-auto shrink-0">
             <select
               value={region}
               onChange={(e) => setRegion(e.target.value)}
-              className="appearance-none w-32 bg-surface-container text-on-surface font-label text-sm tracking-wider uppercase py-4 pl-4 pr-10 rounded-lg border-none outline-none cursor-pointer"
+              className="appearance-none w-full md:w-32 bg-surface-container text-on-surface font-label text-sm tracking-wider uppercase py-3 md:py-4 pl-4 pr-10 rounded-lg border-none outline-none cursor-pointer"
             >
               {REGIONS.map((r) => (
-                <option key={r} value={r}>
-                  {r}
-                </option>
+                <option key={r} value={r}>{r}</option>
               ))}
             </select>
             <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-on-surface-variant">
-              <span className="material-symbols-outlined text-[16px]">
-                expand_more
-              </span>
+              <span className="material-symbols-outlined text-[16px]">expand_more</span>
             </div>
           </div>
 
           {/* Input */}
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Summoner Name + #TAG"
-            className="flex-1 bg-transparent border-none outline-none text-on-surface font-body text-lg p-4 placeholder:text-on-surface-variant/50"
-            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-          />
+          <div className="grow w-full relative">
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Summoner Name + #TAG"
+              className="w-full bg-transparent border-none outline-none text-on-surface font-body text-base md:text-lg px-4 py-3 md:py-4 placeholder:text-on-surface-variant/50"
+              onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+            />
+          </div>
 
           {/* Search button */}
           <button
             onClick={handleSearch}
-            className="shrink-0 bg-primary-container text-on-primary-container font-label font-bold text-sm tracking-wider uppercase py-4 px-8 rounded-lg border-none cursor-pointer flex items-center gap-2 shadow-[0_0_20px_rgba(0,255,148,0.2)] transition-colors duration-150 whitespace-nowrap hover:bg-primary"
+            className="group w-full md:w-auto shrink-0 bg-primary-container text-on-primary-container font-label font-bold text-sm tracking-wider uppercase py-3 md:py-4 px-8 rounded-lg border-none cursor-pointer flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,255,148,0.2)] transition-colors duration-150 hover:bg-primary"
           >
-            Search
-            <span className="material-symbols-outlined text-[18px]">
+            <span>Search</span>
+            <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">
               arrow_forward
             </span>
           </button>
         </div>
 
         {/* Trending */}
-        <div className="mt-8 flex items-center gap-4 font-label text-sm text-on-surface-variant">
-          <span className="uppercase text-[0.7rem] tracking-[0.15em] opacity-50">
-            Trending:
-          </span>
+        <div className="mt-8 flex items-center gap-4 font-label text-sm text-on-surface-variant flex-wrap justify-center">
+          <span className="uppercase text-[0.7rem] tracking-[0.15em] opacity-50">Trending:</span>
           {TRENDING.map((item, i) => (
             <span key={item.label} className="flex items-center gap-4">
               <a
@@ -125,7 +119,6 @@ export default function Home() {
         <p className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 text-sm text-tertiary-fixed-dim font-label transition-opacity duration-500 ${error ? 'opacity-100' : 'opacity-0'}`}>
           {error}
         </p>
-
       </div>
     </main>
   );

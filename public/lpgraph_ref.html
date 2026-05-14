@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#00391d",
+                        "surface-dim": "#131318",
+                        "secondary-container": "#494852",
+                        "tertiary": "#fffaf9",
+                        "tertiary-fixed-dim": "#ffb3ae",
+                        "on-primary-fixed-variant": "#00522c",
+                        "on-primary-fixed": "#00210e",
+                        "surface-container-highest": "#35343a",
+                        "surface-container-high": "#2a292f",
+                        "secondary": "#c7c5d0",
+                        "tertiary-fixed": "#ffdad7",
+                        "secondary-fixed": "#e4e1ed",
+                        "surface-container": "#1f1f25",
+                        "surface-bright": "#39383e",
+                        "primary-fixed-dim": "#00e383",
+                        "on-tertiary-fixed-variant": "#930014",
+                        "inverse-primary": "#006d3c",
+                        "secondary-fixed-dim": "#c7c5d0",
+                        "on-secondary-fixed-variant": "#46464f",
+                        "outline-variant": "#3b4b3e",
+                        "on-error": "#690005",
+                        "inverse-surface": "#e4e1e9",
+                        "on-background": "#e4e1e9",
+                        "on-secondary-fixed": "#1b1b23",
+                        "on-primary-container": "#00713f",
+                        "on-tertiary-fixed": "#410004",
+                        "tertiary-container": "#ffd5d2",
+                        "primary-container": "#00ff94",
+                        "surface": "#131318",
+                        "primary-fixed": "#5bffa1",
+                        "primary": "#f2fff1",
+                        "on-error-container": "#ffdad6",
+                        "on-surface": "#e4e1e9",
+                        "surface-variant": "#35343a",
+                        "surface-container-low": "#1b1b20",
+                        "error": "#ffb4ab",
+                        "outline": "#849586",
+                        "on-secondary-container": "#b9b7c2",
+                        "inverse-on-surface": "#303036",
+                        "on-secondary": "#303038",
+                        "error-container": "#93000a",
+                        "surface-tint": "#00e383",
+                        "on-tertiary": "#68000b",
+                        "on-surface-variant": "#b9cbbb",
+                        "surface-container-lowest": "#0e0e13",
+                        "on-tertiary-container": "#c01c27",
+                        "background": "#131318"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-glow {
+            filter: blur(80px);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .kinetic-grid {
+            background-image: radial-gradient(circle at 1px 1px, #1f1f25 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl flex justify-between items-center px-8 py-4 w-full">
+<div class="flex items-center gap-8">
+<span class="font-headline text-2xl font-bold italic tracking-tighter text-primary-container">Riftly</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-headline text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest text-label-sm" href="#">Live Game</a>
+<a class="font-headline text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest text-label-sm" href="#">Champions</a>
+<a class="font-headline text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest text-label-sm" href="#">Leaderboards</a>
+<a class="font-headline text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest text-label-sm" href="#">Pro View</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed transition-all ease-in-out active:scale-95 duration-300">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed transition-all ease-in-out active:scale-95 duration-300">settings</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest ring-1 ring-outline-variant">
+<img alt="Player Profile" data-alt="A professional headshot of a focused young man in a minimalist gaming environment, lit with cool cyan and warm amber tones. The background is a clean, dark industrial office with subtle light streaks, reinforcing a high-performance, elite gaming atmosphere in a Kinetic Noir style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7e_NCcobfu9-hC78CR2wq76eBIWS59Hhv8TsxbcwmWa_HdMSgkzA0zjqv65f_q1YjXYY4b_56VswBr5kI0D15OegtqROjxnnwNhU8ZdCOyvY6BPcvenymVOuxjvxLOqXTMuh62a8M3GrZ5CoiI4r5Qds99vbftR-TfEubqGyPMwm2N0YyV_pFU4e8ecPQuSRU2BjKvJ8Xlj0ZCFRNM5weZIEOA9CynnsYY96ult_IE0xfb6vl00woUhd8tHe1120jqTs2TAnf2uRO"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-64 z-40 bg-surface-container-low flex flex-col h-full py-8 px-4 shadow-[20px_0_40px_rgba(0,227,131,0.02)] hidden md:flex">
+<div class="mt-16 mb-10 flex items-center gap-3 px-2">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container font-black" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<div>
+<p class="font-headline font-black text-primary-container leading-none">Riftly</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Elite Performance</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-all scale-105 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-all scale-105 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body">Match History</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-all scale-105 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-body">Champions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-surface-container-highest text-primary-fixed font-bold rounded-lg scale-105 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<span class="font-body">LP Graph</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-outline-variant/20 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container duration-200" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-body">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="md:ml-64 pt-24 px-8 pb-12 kinetic-grid min-h-screen">
+<div class="max-w-7xl mx-auto space-y-12">
+<!-- Header Section -->
+<header class="relative space-y-2 py-4">
+<div class="absolute -left-12 top-0 w-24 h-24 bg-primary-container hero-glow rounded-full"></div>
+<h1 class="font-display text-6xl md:text-8xl font-black tracking-tighter text-primary uppercase leading-none">Performance Vector</h1>
+<p class="text-on-surface-variant font-body text-xl tracking-wide max-w-xl border-l-2 border-primary-container pl-6 py-1">Ranked progression analysis for Season 14.</p>
+</header>
+<!-- Rank Summary Bento -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Challenger Card -->
+<div class="relative overflow-hidden col-span-1 md:col-span-2 bg-surface-container-low p-8 rounded-none border-l-4 border-primary-container group transition-all">
+<div class="absolute right-0 bottom-0 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[160px]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<div class="flex flex-col h-full justify-between gap-12">
+<div>
+<span class="font-label text-label-sm uppercase tracking-widest text-primary-fixed-dim">Tier Achievement</span>
+<h2 class="font-display text-5xl font-bold text-on-surface mt-2">Challenger</h2>
+</div>
+<div class="flex items-end gap-12">
+<div>
+<p class="font-label text-label-sm uppercase tracking-widest text-on-surface-variant">Current LP</p>
+<p class="font-display text-6xl font-black text-primary">1,240 <span class="text-2xl font-light text-on-surface-variant">LP</span></p>
+</div>
+<div>
+<p class="font-label text-label-sm uppercase tracking-widest text-on-surface-variant">World Rank</p>
+<p class="font-display text-4xl font-bold text-on-surface">#412</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Win/Loss Mini Bento -->
+<div class="flex flex-col gap-6">
+<div class="flex-1 bg-surface-container p-6 flex flex-col justify-center">
+<span class="font-label text-label-sm uppercase tracking-widest text-on-surface-variant">Season Record</span>
+<div class="flex items-center gap-4 mt-2">
+<span class="font-display text-5xl font-bold text-primary-fixed-dim">32W</span>
+<span class="h-8 w-[2px] bg-outline-variant"></span>
+<span class="font-display text-5xl font-bold text-tertiary-fixed-dim">18L</span>
+</div>
+<div class="mt-4 w-full h-1 bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 64%"></div>
+</div>
+<p class="mt-2 font-label text-xs text-on-surface-variant text-right">64.0% Win Rate</p>
+</div>
+<div class="bg-primary-container p-6 group cursor-pointer transition-all active:scale-95">
+<div class="flex justify-between items-center">
+<span class="font-display text-xl font-bold text-on-primary">Peak 1,302 LP</span>
+<span class="material-symbols-outlined text-on-primary">north_east</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Hero Graph Section -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<h3 class="font-display text-2xl font-bold uppercase tracking-tight text-on-surface">Momentum Curve</h3>
+<p class="font-label text-sm text-on-surface-variant">Tracking last 50 matches for volatility and consistency.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-primary-container rounded-full"></span>
+<span class="text-xs font-label uppercase text-on-surface-variant">Victory</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-error-container rounded-full"></span>
+<span class="text-xs font-label uppercase text-on-surface-variant">Defeat</span>
+</div>
+</div>
+</div>
+<!-- The Kinetic Graph Canvas -->
+<div class="bg-surface-container-low h-[500px] relative overflow-hidden flex flex-col">
+<!-- Graph Grid lines -->
+<div class="absolute inset-0 flex flex-col justify-between py-12 px-6 pointer-events-none opacity-20">
+<div class="border-b border-outline-variant text-[10px] font-label text-on-surface-variant">1300 LP</div>
+<div class="border-b border-outline-variant text-[10px] font-label text-on-surface-variant">1200 LP</div>
+<div class="border-b border-outline-variant text-[10px] font-label text-on-surface-variant">1100 LP</div>
+<div class="border-b border-outline-variant text-[10px] font-label text-on-surface-variant">1000 LP</div>
+<div class="text-[10px] font-label text-on-surface-variant">900 LP</div>
+</div>
+<!-- SVG Graph -->
+<div class="relative flex-1 group">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 400">
+<!-- Gradient Area -->
+<defs>
+<lineargradient id="graphGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#00FF94" stop-opacity="0.1"></stop>
+<stop offset="100%" stop-color="#00FF94" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,350 Q50,330 100,340 T200,310 T300,280 T400,290 T500,250 T600,200 T700,220 T800,150 T900,100 T1000,80 L1000,400 L0,400 Z" fill="url(#graphGradient)"></path>
+<!-- Progression Line -->
+<path d="M0,350 Q50,330 100,340 T200,310 T300,280 T400,290 T500,250 T600,200 T700,220 T800,150 T900,100 T1000,80" fill="none" stroke="#00FF94" stroke-linecap="round" stroke-width="3"></path>
+<!-- Data Nodes (Wins/Losses) -->
+<!-- Sample nodes across the path -->
+<circle class="hover:r-6 cursor-pointer" cx="100" cy="340" fill="#93000a" r="4"></circle>
+<circle cx="200" cy="310" fill="#00ff94" r="4"></circle>
+<circle cx="300" cy="280" fill="#00ff94" r="4"></circle>
+<circle cx="400" cy="290" fill="#93000a" r="4"></circle>
+<circle cx="500" cy="250" fill="#00ff94" r="4"></circle>
+<circle cx="600" cy="200" fill="#00ff94" r="4"></circle>
+<circle cx="700" cy="220" fill="#93000a" r="4"></circle>
+<circle cx="800" cy="150" fill="#00ff94" r="4"></circle>
+<circle cx="900" cy="100" fill="#00ff94" r="4"></circle>
+<circle cx="1000" cy="80" fill="#00ff94" r="6" stroke="#131318" stroke-width="2"></circle>
+</svg>
+<!-- Floating Tooltip Simulation (Asymmetric) -->
+<div class="absolute right-32 top-12 bg-surface-bright/80 backdrop-blur-md p-4 rounded-xl border border-outline-variant/30 shadow-2xl">
+<p class="font-label text-[10px] uppercase text-on-surface-variant">Latest Result</p>
+<p class="font-display text-xl font-bold text-primary-fixed-dim">+22 LP <span class="text-xs font-normal text-on-surface">Victory</span></p>
+<div class="mt-2 flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-surface-container-highest">
+<img alt="Champion Icon" class="w-full h-full object-cover rounded" data-alt="A macro shot of a sleek, high-tech cybernetic interface displaying a stylized warrior icon. The lighting is neon green on a matte black surface, conveying a sense of digital power and character progression in a high-fidelity gaming aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8CbI9_WQs_2Wp95GrqF-AV9SHq5mHs6lovU609oW0f7Qr06cyj5D7ja6Iyo_6YCcCbjcMEKb9SoM6Ie1NxzL1Gt0A-M85icyQ9NUTzrXsRusiGLHuPaSqdtInKgZlPHnGkJ6_Lmkgbjd0MJ9egsBSjgBiMMSRgRCTqLpev-LdfMmSbSY-OLJAtP4M9ljrAOTcPOhmFesB8bqRizOOsuQckZ0ix82396mmK9qA4SPtbtZlxMi6f7yWC4Xb4UshTLrXppzIg-KaLB2C"/>
+</div>
+<span class="text-xs font-body">Sylas • 14/2/8</span>
+</div>
+</div>
+</div>
+<!-- Timeline axis -->
+<div class="h-12 border-t border-outline-variant/30 flex justify-between items-center px-12 bg-surface-container-lowest">
+<span class="text-[10px] font-label uppercase text-on-surface-variant">50 Games Ago</span>
+<span class="text-[10px] font-label uppercase text-on-surface-variant">25 Games Ago</span>
+<span class="text-[10px] font-label uppercase text-primary-fixed-dim">Current Peak</span>
+</div>
+</div>
+</section>
+<!-- Secondary Stat Grid -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-surface-container-low p-6 space-y-4">
+<p class="font-label text-xs uppercase tracking-widest text-on-surface-variant">LP Velocity</p>
+<div class="flex items-end gap-2">
+<span class="font-display text-4xl font-bold">+184</span>
+<span class="text-primary-fixed-dim text-xs font-bold pb-1">LAST 7D</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 space-y-4">
+<p class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Avg. Game Length</p>
+<div class="flex items-end gap-2">
+<span class="font-display text-4xl font-bold">28:14</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 space-y-4">
+<p class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Climb Consistency</p>
+<div class="flex items-end gap-2">
+<span class="font-display text-4xl font-bold">88%</span>
+<span class="material-symbols-outlined text-primary-fixed-dim mb-1" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 space-y-4">
+<p class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Next Milestone</p>
+<div class="flex flex-col">
+<span class="font-display text-lg font-bold">Top 200 Rank</span>
+<div class="w-full h-1 bg-surface-container-highest mt-2">
+<div class="h-full bg-primary-container" style="width: 45%"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-xl px-6 py-4 flex justify-between items-center">
+<div class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] uppercase font-label">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] uppercase font-label">Matches</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary-fixed-dim">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<span class="text-[10px] uppercase font-label">Graph</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="text-[10px] uppercase font-label">Champions</span>
+</div>
+</nav>
+</body></html>

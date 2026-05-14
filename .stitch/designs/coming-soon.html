@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KINETIC NOIR | Coming Soon</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#c7c5d0",
+                      "on-primary": "#00391d",
+                      "error-container": "#93000a",
+                      "surface-bright": "#39383e",
+                      "on-secondary-fixed-variant": "#46464f",
+                      "surface-container-highest": "#35343a",
+                      "surface-container-high": "#2a292f",
+                      "on-error-container": "#ffdad6",
+                      "background": "#131318",
+                      "on-surface-variant": "#b9cbbb",
+                      "inverse-on-surface": "#303036",
+                      "surface": "#131318",
+                      "tertiary-fixed-dim": "#ffb3ae",
+                      "primary-fixed-dim": "#00e383",
+                      "surface-container-lowest": "#0e0e13",
+                      "outline-variant": "#3b4b3e",
+                      "on-surface": "#e4e1e9",
+                      "on-secondary": "#303038",
+                      "on-primary-fixed": "#00210e",
+                      "on-background": "#e4e1e9",
+                      "on-tertiary-fixed-variant": "#930014",
+                      "surface-dim": "#131318",
+                      "tertiary-fixed": "#ffdad7",
+                      "on-secondary-fixed": "#1b1b23",
+                      "secondary-container": "#494852",
+                      "primary": "#f2fff1",
+                      "on-primary-fixed-variant": "#00522c",
+                      "inverse-surface": "#e4e1e9",
+                      "tertiary": "#fffaf9",
+                      "primary-fixed": "#5bffa1",
+                      "surface-variant": "#35343a",
+                      "on-tertiary-container": "#c01c27",
+                      "surface-container": "#1f1f25",
+                      "on-error": "#690005",
+                      "surface-tint": "#00e383",
+                      "tertiary-container": "#ffd5d2",
+                      "inverse-primary": "#006d3c",
+                      "error": "#ffb4ab",
+                      "secondary-fixed-dim": "#c7c5d0",
+                      "on-primary-container": "#00713f",
+                      "outline": "#849586",
+                      "on-tertiary": "#68000b",
+                      "secondary-fixed": "#e4e1ed",
+                      "on-tertiary-fixed": "#410004",
+                      "primary-container": "#00ff94",
+                      "surface-container-low": "#1b1b20",
+                      "on-secondary-container": "#b9b7c2"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Space Grotesk"],
+                      "display": ["Space Grotesk"],
+                      "body": ["Manrope"],
+                      "label": ["Manrope"]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #131318;
+            color: #e4e1e9;
+            font-family: 'Manrope', sans-serif;
+        }
+        .glow-subtle {
+            box-shadow: 0 0 80px -20px rgba(0, 255, 148, 0.15);
+        }
+        .kinetic-gradient {
+            background: linear-gradient(180deg, rgba(0, 255, 148, 0.05) 0%, rgba(0, 255, 148, 0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface overflow-hidden">
+<!-- TopNavBar Shell -->
+<header class="w-full h-16 border-b border-[#1b1b20] bg-[#131318] tonal-transition-via-surface-container-low flat-no-shadows sticky top-0 z-50">
+<div class="flex justify-between items-center px-8 w-full max-w-[1920px] mx-auto h-full">
+<!-- Brand Logo -->
+<div class="text-2xl font-black tracking-tighter text-[#00FF94] font-headline">
+                KINETIC NOIR
+            </div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 h-full font-label">
+<a class="text-[#b9cbbb] hover:text-white transition-colors py-2" href="#">Live Game</a>
+<a class="text-[#b9cbbb] hover:text-white transition-colors py-2" href="#">Champions</a>
+<a class="text-[#b9cbbb] hover:text-white transition-colors py-2" href="#">Leaderboards</a>
+<a class="text-[#b9cbbb] hover:text-white transition-colors py-2" href="#">Pro View</a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-[#b9cbbb]">
+<button class="hover:bg-[#1b1b20] p-2 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:bg-[#1b1b20] p-2 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant bg-surface-container-high">
+<img alt="Summoner Profile Avatar" class="w-full h-full object-cover" data-alt="A high-contrast profile avatar placeholder for an esports athlete, rendered in a minimalist graphic style with deep obsidian tones and a sharp cyan-green kinetic glow edge. The background is a dark, technical carbon fiber texture, consistent with a premium noir gaming aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO2TuwMa9MFdBc_4_kMRgQg6b2i884X9-OY47XyPos2B5qwbAha_OYCVm-CDoX-VlHp5BRzMZKhUoJgGJtJgK0uev612qedge6HvU23-SAvwuJeRBwbILuLtfCd4GQNIlPSVMQS6NRqcAImPSMxV8nlHJZEv84be_TlRWFLKf0ehuEbT279Ow3BO_dwC01ZtkfPMBaaHaT2lsIZ13yDoZ0Dr9SzKmjYsW4krn7cmBWgxksulGRFgr9Hju4TOV5COf5Uo0-IDQjIp5g"/>
+</div>
+</div>
+</div>
+</header>
+<main class="relative h-[calc(100vh-64px)] w-full flex items-center justify-center overflow-hidden">
+<!-- Ambient Decorative Elements -->
+<div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-primary-container/5 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 -right-48 w-[600px] h-[600px] bg-primary-container/5 rounded-full blur-[160px]"></div>
+</div>
+<!-- Main Content Container -->
+<div class="relative z-10 w-full max-w-4xl px-8 flex flex-col items-center text-center">
+<!-- Bento-style Content Card -->
+<div class="bg-surface-container-low/40 backdrop-blur-xl border-l-4 border-primary-container p-12 md:p-24 rounded-xl glow-subtle relative overflow-hidden group">
+<div class="absolute inset-0 kinetic-gradient opacity-50"></div>
+<div class="relative z-10">
+<!-- Subtle Label -->
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-highest rounded-full mb-8">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+<span class="text-[10px] font-bold tracking-[0.2em] text-on-surface-variant uppercase font-label">Development in Progress</span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-primary tracking-tight leading-[1.1] mb-8">
+                        Feature coming <br/>
+<span class="text-primary-container">soon.. :)</span>
+</h1>
+<!-- Descriptive Text -->
+<p class="font-body text-on-surface-variant text-lg md:text-xl max-w-xl mx-auto leading-relaxed mb-12">
+                        We're currently refining this section to deliver an unparalleled analytical experience. Our engineers are fine-tuning the data streams for maximum precision.
+                    </p>
+<!-- Interactive Elements -->
+<div class="flex flex-col md:flex-row items-center justify-center gap-4">
+<button class="px-8 py-4 bg-primary-container text-on-primary-container font-label font-bold rounded-lg transition-transform active:scale-95 duration-150 flex items-center gap-2 group-hover:shadow-[0_0_20px_rgba(0,255,148,0.3)]">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+                            Notify Me
+                        </button>
+<button class="px-8 py-4 border border-outline-variant text-on-surface font-label font-bold rounded-lg hover:bg-surface-container-highest transition-all duration-300">
+                            Return to Dashboard
+                        </button>
+</div>
+</div>
+<!-- Abstract Visual Decor -->
+<div class="absolute -right-20 -bottom-20 opacity-10">
+<span class="material-symbols-outlined text-[300px]" data-icon="sports_esports" style="font-variation-settings: 'FILL' 0;">sports_esports</span>
+</div>
+</div>
+<!-- Trust Badges / Footer Info -->
+<div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-40">
+<div class="flex flex-col items-center gap-2">
+<span class="text-xs font-bold tracking-widest text-on-surface-variant uppercase font-label">Real-time Data</span>
+<div class="h-[1px] w-8 bg-outline-variant"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-xs font-bold tracking-widest text-on-surface-variant uppercase font-label">Global Ranks</span>
+<div class="h-[1px] w-8 bg-outline-variant"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-xs font-bold tracking-widest text-on-surface-variant uppercase font-label">Pro Insights</span>
+<div class="h-[1px] w-8 bg-outline-variant"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-xs font-bold tracking-widest text-on-surface-variant uppercase font-label">Advanced API</span>
+<div class="h-[1px] w-8 bg-outline-variant"></div>
+</div>
+</div>
+</div>
+<!-- Background Image/Texture for Depth -->
+<div class="absolute inset-0 z-0 opacity-20 grayscale pointer-events-none">
+<img alt="Technical Background Grid" class="w-full h-full object-cover" data-alt="A sophisticated technical architectural drawing of a futuristic esports arena, featuring clean white vector lines over a deep charcoal black background. The perspective is dynamic and wide-angle, showing structural beams and holographic displays. The lighting is low-key with subtle green neon light leaks coming from the corners, emphasizing a premium kinetic noir atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8Bijvyz2Hb-Y9dIqHlB45YA2bqMN6jcykghYSQEJAfYcceqxtSNzIcwq6wVmRo1iNynztyEyCqmpPSdhr2YLiAXsy8ElZwvo_BqP8N_-Vx9KXR5PhPNz6aMcMWLqD4YU7XUFBfacmVHDrrA6DPUhgbE6XMcpNE0WH1X-fb7AwW8V73OOtbhJhOqB9wnSe4RUIyqmL_RTrwjqh3tPavGWWbrZf0QdqloK_Ti0nkt8nwkMX3oG7ylmDCObhA7WB-KNoCvUZRjllarru"/>
+</div>
+</main>
+<!-- Bottom Navigation for Mobile (as per Responsive Pivot rule) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-low border-t border-outline-variant h-16 flex items-center justify-around z-50">
+<button class="flex flex-col items-center text-[#00FF94]">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-label">Home</span>
+</button>
+<button class="flex flex-col items-center text-[#b9cbbb]">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-[10px] font-label">History</span>
+</button>
+<button class="flex flex-col items-center text-[#b9cbbb]">
+<span class="material-symbols-outlined" data-icon="sports_esports">sports_esports</span>
+<span class="text-[10px] font-label">Champs</span>
+</button>
+<button class="flex flex-col items-center text-[#b9cbbb]">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span class="text-[10px] font-label">Graph</span>
+</button>
+<button class="flex flex-col items-center text-[#b9cbbb]">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] font-label">Settings</span>
+</button>
+</nav>
+</body></html>

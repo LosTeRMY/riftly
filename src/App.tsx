@@ -9,6 +9,7 @@ import Dashboard from "./components/SummonerProfile/Dashboard/index";
 import BareLayout from "./layouts/BareLayout";
 import Login from "./components/Auth/Login";
 import SignUp from "./components/Auth/SignUp";
+import ComingSoon from "./components/ComingSoon";
 
 import "./index.css";
 
@@ -45,6 +46,9 @@ export default function App() {
             path="/summoner/:region/:name/dashboard"
             element={<Dashboard />}
           />
+        </Route>
+        <Route element={<MainLayout />}>
+          <Route path="/coming-soon" element={<ComingSoon />} />
         </Route>
         <Route element={<BareLayout />}>
           <Route path="/login" element={<Login />} />

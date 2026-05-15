@@ -22,6 +22,7 @@ export function useMatchHistory(puuid: string, region: string) {
   const [hasMore, setHasMore] = useState(true);
   const [initialized, setInitialized] = useState(false);
 
+  // Load the first 10 matches, reset if the profile changes
   useEffect(() => {
     setInitialized(false);
     getMatchIds(puuid, region, 10, 0).then((ids) => {
@@ -31,6 +32,7 @@ export function useMatchHistory(puuid: string, region: string) {
     });
   }, [puuid, region]);
 
+  // Fetch each match detail in parallel
   const matchQueries = useQueries({
     queries: matchIds.map((matchId: string) => ({
       queryKey: ["match", matchId],
@@ -38,6 +40,7 @@ export function useMatchHistory(puuid: string, region: string) {
     })),
   });
 
+  // Format each match for display
   const matches: Match[] = matchQueries
     .filter((q) => !!q.data)
     .map((q) => {
@@ -63,6 +66,7 @@ export function useMatchHistory(puuid: string, region: string) {
 
   const isLoading = !initialized || matchQueries.some((q) => q.isLoading);
 
+  // Load 10 more matches starting from the last known index
   async function loadMore() {
     const newIds = await getMatchIds(puuid, region, 10, matchIds.length);
     setMatchIds((prev) => [...prev, ...newIds]);

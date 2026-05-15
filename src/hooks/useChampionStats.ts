@@ -24,12 +24,14 @@ export type ChampionSummary = {
 // Limited to 50 matches due to Riot API rate limits on dev keys
 
 export function useChampionStats(puuid: string, region: string) {
+  // Step 1: fetch the last 50 match IDs
   const { data: matchIds = [], isLoading: idsLoading } = useQuery({
     queryKey: ["matchIds", puuid, "champions", 50],
     queryFn: () => getMatchIds(puuid, region, 50, 0),
     enabled: !!puuid,
   });
 
+  // Step 2: fetch each match detail in parallel
   const matchQueries = useQueries({
     queries: matchIds.map((matchId: string) => ({
       queryKey: ["match", matchId],
@@ -39,6 +41,7 @@ export function useChampionStats(puuid: string, region: string) {
 
   const isLoading = idsLoading || matchQueries.some((q) => q.isLoading);
 
+  // Step 3: aggregate stats per champion (kills, wins, cs...) into an object keyed by name
   const championMap = matchQueries
     .filter((q) => !!q.data)
     .reduce((acc: Record<string, ChampionStat>, q) => {
@@ -49,13 +52,7 @@ export function useChampionStats(puuid: string, region: string) {
       if (!acc[p.championName]) {
         acc[p.championName] = {
           name: p.championName,
-          games: 0,
-          wins: 0,
-          kills: 0,
-          deaths: 0,
-          assists: 0,
-          cs: 0,
-          gameDurationMinutes: 0,
+          games: 0, wins: 0, kills: 0, deaths: 0, assists: 0, cs: 0, gameDurationMinutes: 0,
         };
       }
 
@@ -70,6 +67,7 @@ export function useChampionStats(puuid: string, region: string) {
       return acc;
     }, {});
 
+  // Step 4: compute averages and format for display, sorted by game count
   const champions: ChampionSummary[] = Object.values(championMap)
     .sort((a, b) => b.games - a.games)
     .map((c) => {

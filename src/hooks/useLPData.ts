@@ -8,12 +8,14 @@ export type LPMatch = {
 };
 
 export function useLPData(puuid: string, region: string) {
+  // Fetch the last 20 match IDs
   const { data: matchIds = [] } = useQuery({
     queryKey: ["matchIds", puuid, "lp", 20],
     queryFn: () => getMatchIds(puuid, region, 20, 0),
     enabled: !!puuid,
   });
 
+  // Fetch each match detail in parallel
   const matchQueries = useQueries({
     queries: matchIds.map((id: string) => ({
       queryKey: ["match", id],
@@ -37,6 +39,7 @@ export function useLPData(puuid: string, region: string) {
         gameDuration: info.gameDuration,
       };
     })
+    // queueId 420 = Ranked Solo/Duo only
     .filter((m) => m.queueId === 420)
     .map(({ matchId, win, gameDuration }) => ({ matchId, win, gameDuration }));
 

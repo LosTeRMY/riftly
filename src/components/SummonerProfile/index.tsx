@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import ProfileSidebar from "./ProfileSidebar";
 import ProfileHeader from "./ProfileHeader";
 import MatchHistory from "./MatchHistory";
+import SummonerNotFound from "../SummonerNotFound";
 import { useQuery } from "@tanstack/react-query";
 import { getPUUID, getSummoner, getRank } from "../../api/riot";
 
@@ -13,12 +14,13 @@ export default function SummonerProfile() {
 
   const {
     data: account,
-    isLoading: accountLoading,
+    isPending: accountPending,
     error: accountError,
   } = useQuery({
     queryKey: ["account", gameName, tagLine],
     queryFn: () => getPUUID(gameName, tagLine),
     enabled: !!name && !!region,
+    retry: false,
   });
 
   const { data: summoner, isLoading: summonerLoading } = useQuery({
@@ -36,8 +38,8 @@ export default function SummonerProfile() {
 const soloRank = rankData?.find((entry: any) => entry.queueType === 'RANKED_SOLO_5x5');
 
   if (!name || !region) return null;
-  if (accountLoading || summonerLoading) return <div>Loading...</div>;
-  if (accountError) return <div>Summoner not found</div>;
+  if (accountError) return <SummonerNotFound />;
+  if (accountPending || summonerLoading) return <div>Loading...</div>;
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row bg-background text-on-surface pt-16">

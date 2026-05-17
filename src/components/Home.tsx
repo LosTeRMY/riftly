@@ -53,7 +53,7 @@ export default function Home() {
       {/* Glow radial gradient */}
       <div style={GLOW_STYLE} />
 
-      <div className="w-full max-w-3xl flex flex-col items-center z-10 mx-auto">
+      <div className="relative w-full max-w-3xl flex flex-col items-center z-10 mx-auto">
         <h1 className="font-headline font-bold text-primary text-center mb-8 md:mb-12 text-4xl md:text-7xl tracking-tight px-4">
           Track your game
         </h1>

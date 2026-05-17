@@ -2,9 +2,12 @@ import { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useProfile } from "../../hooks/useProfile";
+import { useLinkedAccounts } from "../../hooks/useLinkedAccounts";
 import { useAvatarUpload } from "../../hooks/useAvatarUpload";
 import ProfileDropdown from "./ProfileDropdown";
 import AvatarPicker from "./AvatarPicker";
+import SettingsModal from "./SettingsModal";
+import NotificationsDropdown from "./NotificationsDropdown";
 
 const NAV_LINKS = [
   { label: "Live Game", icon: "videogame_asset" },
@@ -16,9 +19,12 @@ const NAV_LINKS = [
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [avatarPickerOpen, setAvatarPickerOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
   const location = useLocation();
   const { user, signOut } = useAuth();
   const { avatarUrl, setAvatarUrl } = useProfile(user);
+  const { accounts, primaryAccount, addAccount, removeAccount, setPrimary } = useLinkedAccounts(user);
   const isProfilePage = location.pathname.startsWith("/summoner/");
   const { fileInputRef, handleAvatarChange, handleResetAvatar, handleSelectPreset } = useAvatarUpload(
     user,
@@ -53,10 +59,13 @@ export default function Nav() {
         </button>
 
         <div className="flex items-center gap-5">
-          <button className="text-on-surface-variant border-none cursor-pointer transition-colors duration-200 p-0 hover:text-primary-container scale-90 md:scale-95" aria-label="Notifications">
-            <span className="material-symbols-outlined text-[22px] block">notifications</span>
-          </button>
-          <button className="text-on-surface-variant border-none cursor-pointer transition-colors duration-200 p-0 hover:text-primary-container scale-90 md:scale-95" aria-label="Settings">
+          <div className="relative">
+            <button onClick={() => setNotificationsOpen(prev => !prev)} className="text-on-surface-variant border-none cursor-pointer transition-colors duration-200 p-0 hover:text-primary-container scale-90 md:scale-95" aria-label="Notifications">
+              <span className="material-symbols-outlined text-[22px] block">notifications</span>
+            </button>
+            {notificationsOpen && <NotificationsDropdown onClose={() => setNotificationsOpen(false)} />}
+          </div>
+          <button onClick={() => setSettingsOpen(true)} className="text-on-surface-variant border-none cursor-pointer transition-colors duration-200 p-0 hover:text-primary-container scale-90 md:scale-95" aria-label="Settings">
             <span className="material-symbols-outlined text-[22px] block">settings</span>
           </button>
           <div className="relative group">
@@ -80,10 +89,20 @@ export default function Nav() {
                 onSelectPreset={handleSelectPreset}
               />
             )}
-            <ProfileDropdown user={user} avatarUrl={avatarUrl} signOut={signOut} />
+            <ProfileDropdown user={user} avatarUrl={avatarUrl} signOut={signOut} summoner={primaryAccount} onLinkAccount={() => setSettingsOpen(true)} />
           </div>
         </div>
       </nav>
+
+      {settingsOpen && (
+        <SettingsModal
+          onClose={() => setSettingsOpen(false)}
+          accounts={accounts}
+          onAddAccount={addAccount}
+          onRemoveAccount={removeAccount}
+          onSetPrimary={setPrimary}
+        />
+      )}
 
       {mobileOpen && (
         <div className="md:hidden fixed inset-0 z-60 bg-background/95 backdrop-blur-sm p-6 overflow-y-auto">

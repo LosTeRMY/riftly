@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useQueries } from "@tanstack/react-query";
+import { useQuery, useQueries } from "@tanstack/react-query";
 import { getMatchIds, getMatch } from "../api/riot";
 import type { Match } from "../types";
 
@@ -18,21 +18,23 @@ function formatDuration(seconds: number) {
 }
 
 export function useMatchHistory(puuid: string, region: string) {
-  const [matchIds, setMatchIds] = useState<string[]>([]);
+  const [extraMatchIds, setExtraMatchIds] = useState<string[]>([]);
   const [hasMore, setHasMore] = useState(true);
-  const [initialized, setInitialized] = useState(false);
 
-  // Load the first 10 matches, reset if the profile changes
+  const { data: initialMatchIds = [], isLoading: idsLoading } = useQuery({
+    queryKey: ["matchIds", puuid, region],
+    queryFn: () => getMatchIds(puuid, region, 10, 0),
+    enabled: !!puuid && !!region,
+  });
+
+  // Reset extra matches when profile changes
   useEffect(() => {
-    setInitialized(false);
-    getMatchIds(puuid, region, 10, 0).then((ids) => {
-      setMatchIds(ids);
-      setInitialized(true);
-      if (ids.length < 10) setHasMore(false);
-    });
+    setExtraMatchIds([]);
+    setHasMore(initialMatchIds.length >= 10);
   }, [puuid, region]);
 
-  // Fetch each match detail in parallel
+  const matchIds = [...initialMatchIds, ...extraMatchIds];
+
   const matchQueries = useQueries({
     queries: matchIds.map((matchId: string) => ({
       queryKey: ["match", matchId],
@@ -40,7 +42,6 @@ export function useMatchHistory(puuid: string, region: string) {
     })),
   });
 
-  // Format each match for display
   const matches: Match[] = matchQueries
     .filter((q) => !!q.data)
     .map((q) => {
@@ -64,12 +65,11 @@ export function useMatchHistory(puuid: string, region: string) {
       };
     });
 
-  const isLoading = !initialized || matchQueries.some((q) => q.isLoading);
+  const isLoading = idsLoading || matchQueries.some((q) => q.isLoading);
 
-  // Load 10 more matches starting from the last known index
   async function loadMore() {
     const newIds = await getMatchIds(puuid, region, 10, matchIds.length);
-    setMatchIds((prev) => [...prev, ...newIds]);
+    setExtraMatchIds((prev) => [...prev, ...newIds]);
     if (newIds.length < 10) setHasMore(false);
   }
 

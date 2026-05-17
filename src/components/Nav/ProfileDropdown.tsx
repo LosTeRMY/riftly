@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import type { User } from "@supabase/supabase-js";
+import type { LinkedAccount } from "../../hooks/useLinkedAccounts";
 
 interface ProfileDropdownProps {
   user: User | null;
   avatarUrl: string;
   signOut: () => Promise<void>;
+  summoner: LinkedAccount | null;
+  onLinkAccount: () => void;
 }
 
-export default function ProfileDropdown({ user, avatarUrl, signOut }: Readonly<ProfileDropdownProps>) {
+export default function ProfileDropdown({ user, avatarUrl, signOut, summoner, onLinkAccount }: Readonly<ProfileDropdownProps>) {
   return (
     <div className="absolute right-0 mt-3 w-64 bg-[#131318] border border-[#00FF94]/30 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[100] origin-top-right translate-y-2 group-hover:translate-y-0">
       <div className="p-5 border-b border-[#1b1b20]">
@@ -26,10 +29,25 @@ export default function ProfileDropdown({ user, avatarUrl, signOut }: Readonly<P
         </div>
       </div>
       <div className="p-2">
-        <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded text-sm font-label text-[#b9cbbb] hover:bg-[#1b1b20] hover:text-[#00FF94] transition-all">
-          <span className="material-symbols-outlined text-lg">link</span>
-          <span>Link my account</span>
-        </a>
+        {user && (
+          summoner ? (
+            <Link
+              to={`/summoner/${summoner.summoner_region}/${encodeURIComponent(`${summoner.summoner_name}#${summoner.summoner_tag}`)}`}
+              className="flex items-center gap-3 px-3 py-2.5 rounded text-sm font-label text-[#b9cbbb] hover:bg-[#1b1b20] hover:text-[#00FF94] transition-all"
+            >
+              <span className="material-symbols-outlined text-lg">person</span>
+              <span className="truncate">{summoner.summoner_name}#{summoner.summoner_tag}</span>
+            </Link>
+          ) : (
+            <button
+              onClick={onLinkAccount}
+              className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-sm font-label text-[#b9cbbb] hover:bg-[#1b1b20] hover:text-[#00FF94] transition-all text-left"
+            >
+              <span className="material-symbols-outlined text-lg">link</span>
+              <span>Link my account</span>
+            </button>
+          )
+        )}
         {user ? (
           <button onClick={signOut} className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-sm font-label text-red-400 hover:bg-red-500/10 transition-all text-left mt-1 cursor-pointer">
             <span className="material-symbols-outlined text-lg">logout</span>

@@ -40,7 +40,7 @@ export default function ComingSoon() {
 
             {/* CTA buttons */}
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-              <button className="px-6 py-3 bg-primary-container text-on-primary-container font-label font-bold rounded-lg transition-transform active:scale-95 duration-150 flex items-center gap-2 group-hover:shadow-[0_0_20px_rgba(0,255,148,0.3)]">
+              <button className="px-6 py-3 bg-primary-container text-on-primary-container font-label font-bold rounded-lg transition-transform cursor-pointer active:scale-95 duration-150 flex items-center gap-2 group-hover:shadow-[0_0_20px_rgba(0,255,148,0.3)]">
                 <span className="material-symbols-outlined">rocket_launch</span>
                 Notify Me
               </button>

@@ -28,7 +28,7 @@ export default function ComingSoon() {
             {/* Headline */}
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary tracking-tight leading-[1.1] mb-6">
               Feature coming <br />
-              <span className="text-primary-container">soon.. :)</span>
+              <span className="text-primary-container">soon.. :/</span>
             </h1>
 
             {/* Description */}

@@ -33,9 +33,7 @@ export default function ComingSoon() {
 
             {/* Description */}
             <p className="font-body text-on-surface-variant text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-8">
-              We're currently refining this section to deliver an unparalleled
-              analytical experience. Our engineers are fine-tuning the data
-              streams for maximum precision.
+              The Riot API does not provide the data required to build this section without a partnership. The navigation links are present for design purposes only.
             </p>
 
             {/* CTA buttons */}

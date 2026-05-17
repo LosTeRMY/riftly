@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const REGIONS = ["EUW", "NA", "KR", "EUNE"];
 
 const TRENDING = [
-  { label: "Faker#KR1", href: "#" },
-  { label: "Caps#EUW", href: "#" },
+  { label: "Hide on bush#KR1", region: "KR" },
+  { label: "G2 Caps#1323", region: "EUW" },
 ];
 
 const GLOW_STYLE = {
@@ -105,12 +105,12 @@ export default function Home() {
           <span className="uppercase text-[0.7rem] tracking-[0.15em] opacity-50">Trending:</span>
           {TRENDING.map((item, i) => (
             <span key={item.label} className="flex items-center gap-4">
-              <a
-                href={item.href}
+              <Link
+                to={`/summoner/${item.region}/${encodeURIComponent(item.label)}`}
                 className="text-on-surface-variant no-underline transition-colors duration-150 hover:text-primary-container"
               >
                 {item.label}
-              </a>
+              </Link>
               {i < TRENDING.length - 1 && <span className="opacity-30">•</span>}
             </span>
           ))}
